@@ -6,32 +6,32 @@ use recurly::request::CreateCouponRequired;
 async fn main() {
     let client = RecurlyClient::from_env();
     let args = CreateCouponRequired {
-        max_redemptions_per_account: 1,
-        free_trial_amount: 1,
-        duration: "your duration",
-        max_redemptions: 1,
-        discount_percent: 1,
-        plan_codes: &["your plan codes"],
-        redemption_resource: "your redemption resource",
-        applies_to_non_plan_charges: true,
-        item_codes: &["your item codes"],
-        discount_type: "your discount type",
-        redeem_by_date: "your redeem by date",
-        free_trial_unit: "your free trial unit",
-        currencies: vec![
-            CouponPricing { currency : Some("your currency".to_owned()), discount :
-            Some(1.0) }
-        ],
-        applies_to_all_items: true,
-        applies_to_all_plans: true,
         temporal_unit: "your temporal unit",
+        currencies: vec![
+            CouponPricing { discount : Some(1.0), currency : Some("your currency"
+            .to_owned()) }
+        ],
+        redemption_resource: "your redemption resource",
+        free_trial_unit: "your free trial unit",
         temporal_amount: 1,
+        free_trial_amount: 1,
+        max_redemptions: 1,
         hosted_description: "your hosted description",
-        invoice_description: "your invoice description",
-        unique_code_template: "your unique code template",
+        item_codes: &["your item codes"],
+        duration: "your duration",
         name: "your name",
         code: "your code",
         coupon_type: "your coupon type",
+        invoice_description: "your invoice description",
+        max_redemptions_per_account: 1,
+        redeem_by_date: "your redeem by date",
+        applies_to_non_plan_charges: true,
+        discount_percent: 1,
+        applies_to_all_items: true,
+        plan_codes: &["your plan codes"],
+        applies_to_all_plans: true,
+        discount_type: "your discount type",
+        unique_code_template: "your unique code template",
     };
     let response = client.create_coupon(args).send().await.unwrap();
     println!("{:#?}", response);
