@@ -11,7 +11,7 @@ async fn main() {
         .custom_fields(
             CustomFields(
                 vec![
-                    CustomField { value : "your value".to_owned(), name : "your name"
+                    CustomField { name : "your name".to_owned(), value : "your value"
                     .to_owned() }
                 ],
             ),
@@ -29,22 +29,22 @@ async fn main() {
         .tax_inclusive(true)
         .shipping(SubscriptionShippingUpdate {
             address: Some(ShippingAddressCreate {
-                country: "your country".to_owned(),
-                city: "your city".to_owned(),
-                first_name: "your first name".to_owned(),
+                phone: Some("your phone".to_owned()),
                 last_name: "your last name".to_owned(),
-                region: Some("your region".to_owned()),
-                street2: Some("your street 2".to_owned()),
-                email: Some("your email".to_owned()),
-                vat_number: Some("your vat number".to_owned()),
-                postal_code: "your postal code".to_owned(),
-                nickname: Some("your nickname".to_owned()),
                 company: Some("your company".to_owned()),
                 street1: "your street 1".to_owned(),
-                phone: Some("your phone".to_owned()),
+                email: Some("your email".to_owned()),
+                region: Some("your region".to_owned()),
+                city: "your city".to_owned(),
+                postal_code: "your postal code".to_owned(),
+                country: "your country".to_owned(),
+                first_name: "your first name".to_owned(),
+                vat_number: Some("your vat number".to_owned()),
+                street2: Some("your street 2".to_owned()),
+                nickname: Some("your nickname".to_owned()),
             }),
-            object: Some("your object".to_owned()),
             address_id: Some("your address id".to_owned()),
+            object: Some("your object".to_owned()),
         })
         .billing_info_id("your billing info id")
         .send()
