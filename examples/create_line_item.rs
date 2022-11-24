@@ -7,8 +7,8 @@ async fn main() {
     let client = RecurlyClient::from_env();
     let args = CreateLineItemRequired {
         account_id: "your account id",
-        type_: "your type",
         unit_amount: 1.0,
+        type_: "your type",
         currency: "your currency",
     };
     let response = client

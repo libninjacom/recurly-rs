@@ -27,9 +27,9 @@ async fn main() {
         .tax_code("your tax code")
         .currencies(
             vec![
-                AddOnPricing { currency : "your currency".to_owned(), unit_amount :
-                Some(1.0), tax_inclusive : Some(true), unit_amount_decimal :
-                Some("your unit amount decimal".to_owned()) }
+                AddOnPricing { unit_amount : Some(1.0), unit_amount_decimal :
+                Some("your unit amount decimal".to_owned()), tax_inclusive : Some(true),
+                currency : "your currency".to_owned() }
             ],
         )
         .tier_type("your tier type")
@@ -38,9 +38,9 @@ async fn main() {
             vec![
                 Tier { ending_quantity : Some(1), usage_percentage :
                 Some("your usage percentage".to_owned()), currencies :
-                Some(vec![TierPricing { unit_amount_decimal :
-                Some("your unit amount decimal".to_owned()), unit_amount : Some(1.0),
-                currency : "your currency".to_owned() }]) }
+                Some(vec![TierPricing { currency : "your currency".to_owned(),
+                unit_amount : Some(1.0), unit_amount_decimal :
+                Some("your unit amount decimal".to_owned()) }]) }
             ],
         )
         .percentage_tiers(
