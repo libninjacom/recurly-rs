@@ -6,32 +6,32 @@ use recurly::request::CreateCouponRequired;
 async fn main() {
     let client = RecurlyClient::from_env();
     let args = CreateCouponRequired {
-        temporal_unit: "your temporal unit",
+        unique_code_template: "your unique code template",
+        code: "your code",
+        free_trial_amount: 1,
+        name: "your name",
+        redemption_resource: "your redemption resource",
+        temporal_amount: 1,
+        invoice_description: "your invoice description",
+        hosted_description: "your hosted description",
+        redeem_by_date: "your redeem by date",
+        free_trial_unit: "your free trial unit",
+        max_redemptions_per_account: 1,
+        discount_percent: 1,
         currencies: vec![
             CouponPricing { discount : Some(1.0), currency : Some("your currency"
             .to_owned()) }
         ],
-        redemption_resource: "your redemption resource",
-        free_trial_unit: "your free trial unit",
-        temporal_amount: 1,
-        free_trial_amount: 1,
+        discount_type: "your discount type",
+        applies_to_non_plan_charges: true,
+        applies_to_all_plans: true,
+        plan_codes: &["your plan codes"],
         max_redemptions: 1,
-        hosted_description: "your hosted description",
         item_codes: &["your item codes"],
         duration: "your duration",
-        name: "your name",
-        code: "your code",
-        coupon_type: "your coupon type",
-        invoice_description: "your invoice description",
-        max_redemptions_per_account: 1,
-        redeem_by_date: "your redeem by date",
-        applies_to_non_plan_charges: true,
-        discount_percent: 1,
         applies_to_all_items: true,
-        plan_codes: &["your plan codes"],
-        applies_to_all_plans: true,
-        discount_type: "your discount type",
-        unique_code_template: "your unique code template",
+        temporal_unit: "your temporal unit",
+        coupon_type: "your coupon type",
     };
     let response = client.create_coupon(args).send().await.unwrap();
     println!("{:#?}", response);
