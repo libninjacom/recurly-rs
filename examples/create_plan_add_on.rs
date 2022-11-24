@@ -36,18 +36,17 @@ async fn main() {
         .usage_timeframe("your usage timeframe")
         .tiers(
             vec![
-                Tier { ending_quantity : Some(1), currencies : Some(vec![TierPricing {
-                currency : "your currency".to_owned(), unit_amount : Some(1.0),
-                unit_amount_decimal : Some("your unit amount decimal".to_owned()) }]),
-                usage_percentage : Some("your usage percentage".to_owned()) }
+                Tier { currencies : Some(vec![TierPricing { unit_amount_decimal :
+                Some("your unit amount decimal".to_owned()), unit_amount : Some(1.0),
+                currency : "your currency".to_owned() }]), usage_percentage :
+                Some("your usage percentage".to_owned()), ending_quantity : Some(1) }
             ],
         )
         .percentage_tiers(
             vec![
-                PercentageTiersByCurrency { tiers : Some(vec![PercentageTier {
-                usage_percentage : Some("your usage percentage".to_owned()),
-                ending_amount : Some(1.0) }]), currency : Some("your currency"
-                .to_owned()) }
+                PercentageTiersByCurrency { currency : Some("your currency".to_owned()),
+                tiers : Some(vec![PercentageTier { ending_amount : Some(1.0),
+                usage_percentage : Some("your usage percentage".to_owned()) }]) }
             ],
         )
         .send()
