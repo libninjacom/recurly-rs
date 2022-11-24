@@ -20,15 +20,15 @@ async fn main() {
         .custom_fields(
             CustomFields(
                 vec![
-                    CustomField { name : "your name".to_owned(), value : "your value"
+                    CustomField { value : "your value".to_owned(), name : "your name"
                     .to_owned() }
                 ],
             ),
         )
         .currencies(
             vec![
-                Pricing { unit_amount : 1.0, tax_inclusive : Some(true), currency :
-                "your currency".to_owned() }
+                Pricing { unit_amount : 1.0, currency : "your currency".to_owned(),
+                tax_inclusive : Some(true) }
             ],
         )
         .send()
