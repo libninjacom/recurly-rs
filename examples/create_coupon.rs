@@ -6,32 +6,32 @@ use recurly::request::CreateCouponRequired;
 async fn main() {
     let client = RecurlyClient::from_env();
     let args = CreateCouponRequired {
-        free_trial_unit: "your free trial unit",
-        coupon_type: "your coupon type",
         max_redemptions: 1,
-        code: "your code",
-        hosted_description: "your hosted description",
-        redeem_by_date: "your redeem by date",
-        free_trial_amount: 1,
-        applies_to_all_items: true,
-        temporal_unit: "your temporal unit",
-        discount_type: "your discount type",
-        invoice_description: "your invoice description",
-        applies_to_non_plan_charges: true,
-        plan_codes: &["your plan codes"],
-        currencies: vec![
-            CouponPricing { discount : Some(1.0), currency : Some("your currency"
-            .to_owned()) }
-        ],
-        applies_to_all_plans: true,
         discount_percent: 1,
-        item_codes: &["your item codes"],
-        temporal_amount: 1,
-        unique_code_template: "your unique code template",
-        redemption_resource: "your redemption resource",
+        redeem_by_date: "your redeem by date",
         name: "your name",
         duration: "your duration",
+        temporal_amount: 1,
+        coupon_type: "your coupon type",
+        applies_to_all_items: true,
+        unique_code_template: "your unique code template",
+        code: "your code",
+        plan_codes: &["your plan codes"],
         max_redemptions_per_account: 1,
+        invoice_description: "your invoice description",
+        free_trial_unit: "your free trial unit",
+        temporal_unit: "your temporal unit",
+        redemption_resource: "your redemption resource",
+        currencies: vec![
+            CouponPricing { currency : Some("your currency".to_owned()), discount :
+            Some(1.0) }
+        ],
+        free_trial_amount: 1,
+        discount_type: "your discount type",
+        item_codes: &["your item codes"],
+        hosted_description: "your hosted description",
+        applies_to_all_plans: true,
+        applies_to_non_plan_charges: true,
     };
     let response = client.create_coupon(args).send().await.unwrap();
     println!("{:#?}", response);

@@ -41,15 +41,15 @@ async fn main() {
         .tax_exempt(true)
         .currencies(
             vec![
-                PlanPricing { unit_amount : Some(1.0), tax_inclusive : Some(true),
-                currency : Some("your currency".to_owned()), setup_fee : Some(1.0) }
+                PlanPricing { setup_fee : Some(1.0), tax_inclusive : Some(true),
+                unit_amount : Some(1.0), currency : Some("your currency".to_owned()) }
             ],
         )
         .hosted_pages(PlanHostedPages {
+            bypass_confirmation: Some(true),
             display_quantity: Some(true),
             success_url: Some("your success url".to_owned()),
             cancel_url: Some("your cancel url".to_owned()),
-            bypass_confirmation: Some(true),
         })
         .allow_any_item_on_subscriptions(true)
         .dunning_campaign_id("your dunning campaign id")
