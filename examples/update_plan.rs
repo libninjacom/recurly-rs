@@ -27,7 +27,7 @@ async fn main() {
         .custom_fields(
             CustomFields(
                 vec![
-                    CustomField { name : "your name".to_owned(), value : "your value"
+                    CustomField { value : "your value".to_owned(), name : "your name"
                     .to_owned() }
                 ],
             ),
@@ -41,14 +41,14 @@ async fn main() {
         .tax_exempt(true)
         .currencies(
             vec![
-                PlanPricing { setup_fee : Some(1.0), currency : Some("your currency"
-                .to_owned()), unit_amount : Some(1.0), tax_inclusive : Some(true) }
+                PlanPricing { unit_amount : Some(1.0), tax_inclusive : Some(true),
+                currency : Some("your currency".to_owned()), setup_fee : Some(1.0) }
             ],
         )
         .hosted_pages(PlanHostedPages {
             cancel_url: Some("your cancel url".to_owned()),
-            bypass_confirmation: Some(true),
             success_url: Some("your success url".to_owned()),
+            bypass_confirmation: Some(true),
             display_quantity: Some(true),
         })
         .allow_any_item_on_subscriptions(true)
