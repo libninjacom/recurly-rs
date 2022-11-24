@@ -27,8 +27,8 @@ async fn main() {
         )
         .currencies(
             vec![
-                Pricing { unit_amount : 1.0, currency : "your currency".to_owned(),
-                tax_inclusive : Some(true) }
+                Pricing { tax_inclusive : Some(true), unit_amount : 1.0, currency :
+                "your currency".to_owned() }
             ],
         )
         .send()
