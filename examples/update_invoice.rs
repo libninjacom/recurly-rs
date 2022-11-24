@@ -13,8 +13,8 @@ async fn main() {
         .customer_notes("your customer notes")
         .net_terms(1)
         .address(InvoiceAddress {
-            company: Some("your company".to_owned()),
             name_on_account: Some("your name on account".to_owned()),
+            company: Some("your company".to_owned()),
         })
         .send()
         .await

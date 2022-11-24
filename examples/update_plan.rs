@@ -41,13 +41,13 @@ async fn main() {
         .tax_exempt(true)
         .currencies(
             vec![
-                PlanPricing { tax_inclusive : Some(true), setup_fee : Some(1.0), currency
-                : Some("your currency".to_owned()), unit_amount : Some(1.0) }
+                PlanPricing { unit_amount : Some(1.0), currency : Some("your currency"
+                .to_owned()), tax_inclusive : Some(true), setup_fee : Some(1.0) }
             ],
         )
         .hosted_pages(PlanHostedPages {
-            display_quantity: Some(true),
             bypass_confirmation: Some(true),
+            display_quantity: Some(true),
             cancel_url: Some("your cancel url".to_owned()),
             success_url: Some("your success url".to_owned()),
         })
