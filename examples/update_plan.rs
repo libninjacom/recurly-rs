@@ -20,8 +20,8 @@ async fn main() {
         .ramp_intervals(
             vec![
                 PlanRampInterval { starting_billing_cycle : Some(1), currencies :
-                Some(vec![PlanRampPricing { currency : "your currency".to_owned(),
-                unit_amount : 1.0 }]) }
+                Some(vec![PlanRampPricing { unit_amount : 1.0, currency : "your currency"
+                .to_owned() }]) }
             ],
         )
         .custom_fields(
@@ -41,14 +41,14 @@ async fn main() {
         .tax_exempt(true)
         .currencies(
             vec![
-                PlanPricing { unit_amount : Some(1.0), currency : Some("your currency"
-                .to_owned()), setup_fee : Some(1.0), tax_inclusive : Some(true) }
+                PlanPricing { tax_inclusive : Some(true), setup_fee : Some(1.0), currency
+                : Some("your currency".to_owned()), unit_amount : Some(1.0) }
             ],
         )
         .hosted_pages(PlanHostedPages {
+            display_quantity: Some(true),
             bypass_confirmation: Some(true),
             cancel_url: Some("your cancel url".to_owned()),
-            display_quantity: Some(true),
             success_url: Some("your success url".to_owned()),
         })
         .allow_any_item_on_subscriptions(true)
