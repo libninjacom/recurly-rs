@@ -1,0 +1,1205 @@
+[package]
+name = "recurly"
+edition = "2021"
+version = "0.1.0"
+description = "Recurly client, generated from the OpenAPI spec."
+homepage = "https://github.com/libninjacom/recurly-rs"
+documentation = "https://docs.rs/recurly"
+readme = "README.md"
+license = "MIT"
+repository = "https://github.com/libninjacom/recurly-rs"
+
+[workspace]
+members = []
+
+[dependencies]
+anyhow = "1.0.57"
+httpclient = "0.8.0"
+serde_json = "1.0.81"
+
+[dependencies.serde]
+version = "1.0.137"
+features = ["derive"]
+optional = false
+[dev-dependencies.tokio]
+version = "1.18.2"
+features = ["full"]
+optional = false
+
+[lib]
+path = "src/lib.rs"
+name = "recurly"
+doctest = false
+plugin = false
+proc-macro = false
+edition = "2021"
+crate-type = ["rlib"]
+required-features = []
+
+[[example]]
+path = "examples/apply_credit_balance.rs"
+name = "apply_credit_balance"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/cancel_subscription.rs"
+name = "cancel_subscription"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/collect_invoice.rs"
+name = "collect_invoice"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/convert_trial.rs"
+name = "convert_trial"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/create_account.rs"
+name = "create_account"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/create_billing_info.rs"
+name = "create_billing_info"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/create_coupon.rs"
+name = "create_coupon"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/create_coupon_redemption.rs"
+name = "create_coupon_redemption"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/create_invoice.rs"
+name = "create_invoice"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/create_item.rs"
+name = "create_item"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/create_line_item.rs"
+name = "create_line_item"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/create_measured_unit.rs"
+name = "create_measured_unit"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/create_pending_purchase.rs"
+name = "create_pending_purchase"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/create_plan.rs"
+name = "create_plan"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/create_plan_add_on.rs"
+name = "create_plan_add_on"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/create_purchase.rs"
+name = "create_purchase"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/create_shipping_address.rs"
+name = "create_shipping_address"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/create_shipping_method.rs"
+name = "create_shipping_method"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/create_subscription.rs"
+name = "create_subscription"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/create_subscription_change.rs"
+name = "create_subscription_change"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/create_usage.rs"
+name = "create_usage"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/deactivate_account.rs"
+name = "deactivate_account"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/deactivate_coupon.rs"
+name = "deactivate_coupon"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/deactivate_item.rs"
+name = "deactivate_item"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/deactivate_shipping_method.rs"
+name = "deactivate_shipping_method"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/deactivate_unique_coupon_code.rs"
+name = "deactivate_unique_coupon_code"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/generate_unique_coupon_codes.rs"
+name = "generate_unique_coupon_codes"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/get_a_billing_info.rs"
+name = "get_a_billing_info"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/get_account.rs"
+name = "get_account"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/get_account_acquisition.rs"
+name = "get_account_acquisition"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/get_account_balance.rs"
+name = "get_account_balance"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/get_account_note.rs"
+name = "get_account_note"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/get_add_on.rs"
+name = "get_add_on"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/get_billing_info.rs"
+name = "get_billing_info"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/get_coupon.rs"
+name = "get_coupon"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/get_credit_payment.rs"
+name = "get_credit_payment"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/get_custom_field_definition.rs"
+name = "get_custom_field_definition"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/get_dunning_campaign.rs"
+name = "get_dunning_campaign"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/get_export_dates.rs"
+name = "get_export_dates"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/get_export_files.rs"
+name = "get_export_files"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/get_external_product.rs"
+name = "get_external_product"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/get_external_subscription.rs"
+name = "get_external_subscription"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/get_invoice.rs"
+name = "get_invoice"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/get_invoice_pdf.rs"
+name = "get_invoice_pdf"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/get_invoice_template.rs"
+name = "get_invoice_template"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/get_item.rs"
+name = "get_item"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/get_line_item.rs"
+name = "get_line_item"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/get_measured_unit.rs"
+name = "get_measured_unit"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/get_plan.rs"
+name = "get_plan"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/get_plan_add_on.rs"
+name = "get_plan_add_on"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/get_preview_renewal.rs"
+name = "get_preview_renewal"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/get_shipping_address.rs"
+name = "get_shipping_address"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/get_shipping_method.rs"
+name = "get_shipping_method"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/get_site.rs"
+name = "get_site"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/get_subscription.rs"
+name = "get_subscription"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/get_subscription_change.rs"
+name = "get_subscription_change"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/get_transaction.rs"
+name = "get_transaction"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/get_unique_coupon_code.rs"
+name = "get_unique_coupon_code"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/get_usage.rs"
+name = "get_usage"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/list_account_acquisition.rs"
+name = "list_account_acquisition"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/list_account_coupon_redemptions.rs"
+name = "list_account_coupon_redemptions"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/list_account_credit_payments.rs"
+name = "list_account_credit_payments"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/list_account_external_subscriptions.rs"
+name = "list_account_external_subscriptions"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/list_account_invoices.rs"
+name = "list_account_invoices"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/list_account_line_items.rs"
+name = "list_account_line_items"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/list_account_notes.rs"
+name = "list_account_notes"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/list_account_subscriptions.rs"
+name = "list_account_subscriptions"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/list_account_transactions.rs"
+name = "list_account_transactions"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/list_accounts.rs"
+name = "list_accounts"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/list_active_coupon_redemptions.rs"
+name = "list_active_coupon_redemptions"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/list_add_ons.rs"
+name = "list_add_ons"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/list_billing_infos.rs"
+name = "list_billing_infos"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/list_child_accounts.rs"
+name = "list_child_accounts"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/list_coupons.rs"
+name = "list_coupons"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/list_credit_payments.rs"
+name = "list_credit_payments"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/list_custom_field_definitions.rs"
+name = "list_custom_field_definitions"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/list_dunning_campaigns.rs"
+name = "list_dunning_campaigns"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/list_entitlements.rs"
+name = "list_entitlements"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/list_external_products.rs"
+name = "list_external_products"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/list_external_subscriptions.rs"
+name = "list_external_subscriptions"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/list_invoice_coupon_redemptions.rs"
+name = "list_invoice_coupon_redemptions"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/list_invoice_line_items.rs"
+name = "list_invoice_line_items"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/list_invoice_template_accounts.rs"
+name = "list_invoice_template_accounts"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/list_invoice_templates.rs"
+name = "list_invoice_templates"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/list_invoices.rs"
+name = "list_invoices"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/list_items.rs"
+name = "list_items"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/list_line_items.rs"
+name = "list_line_items"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/list_measured_unit.rs"
+name = "list_measured_unit"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/list_plan_add_ons.rs"
+name = "list_plan_add_ons"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/list_plans.rs"
+name = "list_plans"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/list_related_invoices.rs"
+name = "list_related_invoices"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/list_shipping_addresses.rs"
+name = "list_shipping_addresses"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/list_shipping_methods.rs"
+name = "list_shipping_methods"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/list_sites.rs"
+name = "list_sites"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/list_subscription_coupon_redemptions.rs"
+name = "list_subscription_coupon_redemptions"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/list_subscription_invoices.rs"
+name = "list_subscription_invoices"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/list_subscription_line_items.rs"
+name = "list_subscription_line_items"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/list_subscriptions.rs"
+name = "list_subscriptions"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/list_transactions.rs"
+name = "list_transactions"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/list_unique_coupon_codes.rs"
+name = "list_unique_coupon_codes"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/list_usage.rs"
+name = "list_usage"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/mark_invoice_failed.rs"
+name = "mark_invoice_failed"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/mark_invoice_successful.rs"
+name = "mark_invoice_successful"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/pause_subscription.rs"
+name = "pause_subscription"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/preview_invoice.rs"
+name = "preview_invoice"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/preview_purchase.rs"
+name = "preview_purchase"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/preview_subscription_change.rs"
+name = "preview_subscription_change"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/put_dunning_campaign_bulk_update.rs"
+name = "put_dunning_campaign_bulk_update"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/reactivate_account.rs"
+name = "reactivate_account"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/reactivate_item.rs"
+name = "reactivate_item"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/reactivate_subscription.rs"
+name = "reactivate_subscription"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/reactivate_unique_coupon_code.rs"
+name = "reactivate_unique_coupon_code"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/record_external_transaction.rs"
+name = "record_external_transaction"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/refund_invoice.rs"
+name = "refund_invoice"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/remove_a_billing_info.rs"
+name = "remove_a_billing_info"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/remove_account_acquisition.rs"
+name = "remove_account_acquisition"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/remove_billing_info.rs"
+name = "remove_billing_info"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/remove_coupon_redemption.rs"
+name = "remove_coupon_redemption"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/remove_line_item.rs"
+name = "remove_line_item"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/remove_measured_unit.rs"
+name = "remove_measured_unit"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/remove_plan.rs"
+name = "remove_plan"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/remove_plan_add_on.rs"
+name = "remove_plan_add_on"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/remove_shipping_address.rs"
+name = "remove_shipping_address"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/remove_subscription_change.rs"
+name = "remove_subscription_change"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/remove_usage.rs"
+name = "remove_usage"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/reopen_invoice.rs"
+name = "reopen_invoice"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/restore_coupon.rs"
+name = "restore_coupon"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/resume_subscription.rs"
+name = "resume_subscription"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/terminate_subscription.rs"
+name = "terminate_subscription"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/update_a_billing_info.rs"
+name = "update_a_billing_info"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/update_account.rs"
+name = "update_account"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/update_account_acquisition.rs"
+name = "update_account_acquisition"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/update_billing_info.rs"
+name = "update_billing_info"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/update_coupon.rs"
+name = "update_coupon"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/update_invoice.rs"
+name = "update_invoice"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/update_item.rs"
+name = "update_item"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/update_measured_unit.rs"
+name = "update_measured_unit"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/update_plan.rs"
+name = "update_plan"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/update_plan_add_on.rs"
+name = "update_plan_add_on"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/update_shipping_address.rs"
+name = "update_shipping_address"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/update_shipping_method.rs"
+name = "update_shipping_method"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/update_subscription.rs"
+name = "update_subscription"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/update_usage.rs"
+name = "update_usage"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/verify_billing_info.rs"
+name = "verify_billing_info"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/verify_billing_info_cvv.rs"
+name = "verify_billing_info_cvv"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
+
+[[example]]
+path = "examples/void_invoice.rs"
+name = "void_invoice"
+plugin = false
+proc-macro = false
+edition = "2021"
+required-features = []
