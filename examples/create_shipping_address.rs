@@ -7,12 +7,12 @@ async fn main() {
     let client = RecurlyClient::from_env();
     let args = CreateShippingAddressRequired {
         first_name: "your first name",
-        account_id: "your account id",
-        city: "your city",
-        postal_code: "your postal code",
         last_name: "your last name",
         street1: "your street 1",
+        city: "your city",
+        postal_code: "your postal code",
         country: "your country",
+        account_id: "your account id",
     };
     let response = client
         .create_shipping_address(args)
