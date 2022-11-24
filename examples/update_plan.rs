@@ -19,15 +19,15 @@ async fn main() {
         .auto_renew(true)
         .ramp_intervals(
             vec![
-                PlanRampInterval { currencies : Some(vec![PlanRampPricing { unit_amount :
-                1.0, currency : "your currency".to_owned() }]), starting_billing_cycle :
-                Some(1) }
+                PlanRampInterval { starting_billing_cycle : Some(1), currencies :
+                Some(vec![PlanRampPricing { currency : "your currency".to_owned(),
+                unit_amount : 1.0 }]) }
             ],
         )
         .custom_fields(
             CustomFields(
                 vec![
-                    CustomField { name : "your name".to_owned(), value : "your value"
+                    CustomField { value : "your value".to_owned(), name : "your name"
                     .to_owned() }
                 ],
             ),
@@ -41,15 +41,15 @@ async fn main() {
         .tax_exempt(true)
         .currencies(
             vec![
-                PlanPricing { unit_amount : Some(1.0), currency : Some("your currency"
-                .to_owned()), tax_inclusive : Some(true), setup_fee : Some(1.0) }
+                PlanPricing { currency : Some("your currency".to_owned()), unit_amount :
+                Some(1.0), tax_inclusive : Some(true), setup_fee : Some(1.0) }
             ],
         )
         .hosted_pages(PlanHostedPages {
+            cancel_url: Some("your cancel url".to_owned()),
             success_url: Some("your success url".to_owned()),
             bypass_confirmation: Some(true),
             display_quantity: Some(true),
-            cancel_url: Some("your cancel url".to_owned()),
         })
         .allow_any_item_on_subscriptions(true)
         .dunning_campaign_id("your dunning campaign id")
