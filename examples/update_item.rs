@@ -20,7 +20,7 @@ async fn main() {
         .custom_fields(
             CustomFields(
                 vec![
-                    CustomField { name : "your name".to_owned(), value : "your value"
+                    CustomField { value : "your value".to_owned(), name : "your name"
                     .to_owned() }
                 ],
             ),
