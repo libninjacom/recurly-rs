@@ -15,40 +15,40 @@ async fn main() {
         .quantity(1)
         .shipping(SubscriptionChangeShippingCreate {
             address_id: Some("your address id".to_owned()),
-            method_id: Some("your method id".to_owned()),
-            address: Some(ShippingAddressCreate {
-                company: Some("your company".to_owned()),
-                postal_code: "your postal code".to_owned(),
-                street1: "your street 1".to_owned(),
-                email: Some("your email".to_owned()),
-                first_name: "your first name".to_owned(),
-                phone: Some("your phone".to_owned()),
-                last_name: "your last name".to_owned(),
-                street2: Some("your street 2".to_owned()),
-                vat_number: Some("your vat number".to_owned()),
-                country: "your country".to_owned(),
-                city: "your city".to_owned(),
-                nickname: Some("your nickname".to_owned()),
-                region: Some("your region".to_owned()),
-            }),
             amount: Some(1.0),
             method_code: Some("your method code".to_owned()),
+            method_id: Some("your method id".to_owned()),
+            address: Some(ShippingAddressCreate {
+                region: Some("your region".to_owned()),
+                company: Some("your company".to_owned()),
+                email: Some("your email".to_owned()),
+                nickname: Some("your nickname".to_owned()),
+                phone: Some("your phone".to_owned()),
+                street2: Some("your street 2".to_owned()),
+                street1: "your street 1".to_owned(),
+                country: "your country".to_owned(),
+                vat_number: Some("your vat number".to_owned()),
+                city: "your city".to_owned(),
+                first_name: "your first name".to_owned(),
+                postal_code: "your postal code".to_owned(),
+                last_name: "your last name".to_owned(),
+            }),
         })
         .coupon_codes(&["your coupon codes"])
         .add_ons(
             vec![
-                SubscriptionAddOnUpdate { unit_amount : Some(1.0), id : Some("your id"
-                .to_owned()), usage_percentage : Some(1.0), code : Some("your code"
-                .to_owned()), quantity : Some(1), tiers : Some(vec![SubscriptionAddOnTier
-                { usage_percentage : Some("your usage percentage".to_owned()),
-                unit_amount_decimal : Some("your unit amount decimal".to_owned()),
-                ending_quantity : Some(1), unit_amount : Some(1.0) }]),
-                unit_amount_decimal : Some("your unit amount decimal".to_owned()),
-                percentage_tiers : Some(vec![SubscriptionAddOnPercentageTier {
-                ending_amount : Some(1.0), usage_percentage :
-                Some("your usage percentage".to_owned()) }]), add_on_source :
-                Some("your add on source".to_owned()), revenue_schedule_type :
-                Some("your revenue schedule type".to_owned()) }
+                SubscriptionAddOnUpdate { quantity : Some(1), add_on_source :
+                Some("your add on source".to_owned()), unit_amount : Some(1.0), id :
+                Some("your id".to_owned()), percentage_tiers :
+                Some(vec![SubscriptionAddOnPercentageTier { usage_percentage :
+                Some("your usage percentage".to_owned()), ending_amount : Some(1.0) }]),
+                usage_percentage : Some(1.0), revenue_schedule_type :
+                Some("your revenue schedule type".to_owned()), tiers :
+                Some(vec![SubscriptionAddOnTier { unit_amount_decimal :
+                Some("your unit amount decimal".to_owned()), ending_quantity : Some(1),
+                usage_percentage : Some("your usage percentage".to_owned()), unit_amount
+                : Some(1.0) }]), code : Some("your code".to_owned()), unit_amount_decimal
+                : Some("your unit amount decimal".to_owned()) }
             ],
         )
         .collection_method("your collection method")
