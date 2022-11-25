@@ -20,8 +20,8 @@ async fn main() {
         .ramp_intervals(
             vec![
                 PlanRampInterval { starting_billing_cycle : Some(1), currencies :
-                Some(vec![PlanRampPricing { unit_amount : 1.0, currency : "your currency"
-                .to_owned() }]) }
+                Some(vec![PlanRampPricing { currency : "your currency".to_owned(),
+                unit_amount : 1.0 }]) }
             ],
         )
         .custom_fields(
@@ -41,15 +41,15 @@ async fn main() {
         .tax_exempt(true)
         .currencies(
             vec![
-                PlanPricing { currency : Some("your currency".to_owned()), setup_fee :
-                Some(1.0), unit_amount : Some(1.0), tax_inclusive : Some(true) }
+                PlanPricing { setup_fee : Some(1.0), unit_amount : Some(1.0), currency :
+                Some("your currency".to_owned()), tax_inclusive : Some(true) }
             ],
         )
         .hosted_pages(PlanHostedPages {
-            success_url: Some("your success url".to_owned()),
-            display_quantity: Some(true),
-            cancel_url: Some("your cancel url".to_owned()),
             bypass_confirmation: Some(true),
+            display_quantity: Some(true),
+            success_url: Some("your success url".to_owned()),
+            cancel_url: Some("your cancel url".to_owned()),
         })
         .allow_any_item_on_subscriptions(true)
         .dunning_campaign_id("your dunning campaign id")

@@ -14,12 +14,12 @@ async fn main() {
         .company("your company")
         .address(Address {
             region: Some("your region".to_owned()),
-            postal_code: Some("your postal code".to_owned()),
-            phone: Some("your phone".to_owned()),
-            city: Some("your city".to_owned()),
-            street1: Some("your street 1".to_owned()),
             country: Some("your country".to_owned()),
+            postal_code: Some("your postal code".to_owned()),
             street2: Some("your street 2".to_owned()),
+            street1: Some("your street 1".to_owned()),
+            city: Some("your city".to_owned()),
+            phone: Some("your phone".to_owned()),
         })
         .number("your number")
         .month("your month")
