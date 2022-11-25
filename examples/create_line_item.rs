@@ -6,10 +6,10 @@ use recurly::request::CreateLineItemRequired;
 async fn main() {
     let client = RecurlyClient::from_env();
     let args = CreateLineItemRequired {
+        unit_amount: 1.0,
         type_: "your type",
         account_id: "your account id",
         currency: "your currency",
-        unit_amount: 1.0,
     };
     let response = client
         .create_line_item(args)
