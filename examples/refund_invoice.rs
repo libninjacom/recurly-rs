@@ -11,8 +11,8 @@ async fn main() {
         .amount(1.0)
         .line_items(
             vec![
-                LineItemRefund { quantity : Some(1), quantity_decimal :
-                Some("your quantity decimal".to_owned()), prorate : Some(true), id :
+                LineItemRefund { prorate : Some(true), quantity_decimal :
+                Some("your quantity decimal".to_owned()), quantity : Some(1), id :
                 Some("your id".to_owned()) }
             ],
         )
