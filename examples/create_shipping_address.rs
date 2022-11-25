@@ -6,13 +6,13 @@ use recurly::request::CreateShippingAddressRequired;
 async fn main() {
     let client = RecurlyClient::from_env();
     let args = CreateShippingAddressRequired {
-        postal_code: "your postal code",
-        account_id: "your account id",
-        country: "your country",
         street1: "your street 1",
-        first_name: "your first name",
         city: "your city",
+        first_name: "your first name",
+        country: "your country",
+        postal_code: "your postal code",
         last_name: "your last name",
+        account_id: "your account id",
     };
     let response = client
         .create_shipping_address(args)
