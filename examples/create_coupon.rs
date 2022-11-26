@@ -6,32 +6,32 @@ use recurly::request::CreateCouponRequired;
 async fn main() {
     let client = RecurlyClient::from_env();
     let args = CreateCouponRequired {
-        name: "your name",
-        unique_code_template: "your unique code template",
-        max_redemptions: 1,
-        duration: "your duration",
-        redemption_resource: "your redemption resource",
-        temporal_unit: "your temporal unit",
-        free_trial_amount: 1,
-        invoice_description: "your invoice description",
-        applies_to_non_plan_charges: true,
-        free_trial_unit: "your free trial unit",
         currencies: vec![
-            CouponPricing { discount : Some(1.0), currency : Some("your currency"
-            .to_owned()) }
+            CouponPricing { currency : Some("your currency".to_owned()), discount :
+            Some(1.0) }
         ],
-        plan_codes: &["your plan codes"],
-        discount_type: "your discount type",
-        item_codes: &["your item codes"],
-        max_redemptions_per_account: 1,
+        free_trial_unit: "your free trial unit",
+        max_redemptions: 1,
+        applies_to_non_plan_charges: true,
+        invoice_description: "your invoice description",
+        discount_percent: 1,
+        free_trial_amount: 1,
+        applies_to_all_plans: true,
         redeem_by_date: "your redeem by date",
-        coupon_type: "your coupon type",
+        temporal_unit: "your temporal unit",
         code: "your code",
         applies_to_all_items: true,
-        discount_percent: 1,
-        applies_to_all_plans: true,
-        hosted_description: "your hosted description",
+        item_codes: &["your item codes"],
+        duration: "your duration",
+        unique_code_template: "your unique code template",
+        max_redemptions_per_account: 1,
+        discount_type: "your discount type",
         temporal_amount: 1,
+        name: "your name",
+        plan_codes: &["your plan codes"],
+        hosted_description: "your hosted description",
+        coupon_type: "your coupon type",
+        redemption_resource: "your redemption resource",
     };
     let response = client.create_coupon(args).send().await.unwrap();
     println!("{:#?}", response);
