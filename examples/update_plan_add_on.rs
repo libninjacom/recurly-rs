@@ -25,26 +25,25 @@ async fn main() {
         .optional(true)
         .currencies(
             vec![
-                AddOnPricing { currency : "your currency".to_owned(), unit_amount :
-                Some(1.0), unit_amount_decimal : Some("your unit amount decimal"
-                .to_owned()), tax_inclusive : Some(true) }
+                AddOnPricing { unit_amount_decimal : Some("your unit amount decimal"
+                .to_owned()), tax_inclusive : Some(true), unit_amount : Some(1.0),
+                currency : "your currency".to_owned() }
             ],
         )
         .tiers(
             vec![
                 Tier { ending_quantity : Some(1), usage_percentage :
                 Some("your usage percentage".to_owned()), currencies :
-                Some(vec![TierPricing { currency : "your currency".to_owned(),
-                unit_amount_decimal : Some("your unit amount decimal".to_owned()),
-                unit_amount : Some(1.0) }]) }
+                Some(vec![TierPricing { unit_amount_decimal :
+                Some("your unit amount decimal".to_owned()), currency : "your currency"
+                .to_owned(), unit_amount : Some(1.0) }]) }
             ],
         )
         .percentage_tiers(
             vec![
-                PercentageTiersByCurrency { tiers : Some(vec![PercentageTier {
-                usage_percentage : Some("your usage percentage".to_owned()),
-                ending_amount : Some(1.0) }]), currency : Some("your currency"
-                .to_owned()) }
+                PercentageTiersByCurrency { currency : Some("your currency".to_owned()),
+                tiers : Some(vec![PercentageTier { usage_percentage :
+                Some("your usage percentage".to_owned()), ending_amount : Some(1.0) }]) }
             ],
         )
         .send()
