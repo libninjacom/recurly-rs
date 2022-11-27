@@ -6,32 +6,32 @@ use recurly::request::CreateCouponRequired;
 async fn main() {
     let client = RecurlyClient::from_env();
     let args = CreateCouponRequired {
-        redeem_by_date: "your redeem by date",
-        free_trial_amount: 1,
         discount_percent: 1,
-        max_redemptions: 1,
-        free_trial_unit: "your free trial unit",
-        max_redemptions_per_account: 1,
-        applies_to_all_items: true,
-        temporal_unit: "your temporal unit",
-        redemption_resource: "your redemption resource",
-        item_codes: &["your item codes"],
+        invoice_description: "your invoice description",
         discount_type: "your discount type",
+        applies_to_all_items: true,
         currencies: vec![
             CouponPricing { currency : Some("your currency".to_owned()), discount :
             Some(1.0) }
         ],
-        plan_codes: &["your plan codes"],
+        max_redemptions_per_account: 1,
         temporal_amount: 1,
-        unique_code_template: "your unique code template",
-        name: "your name",
-        invoice_description: "your invoice description",
-        duration: "your duration",
-        applies_to_non_plan_charges: true,
-        code: "your code",
-        coupon_type: "your coupon type",
+        temporal_unit: "your temporal unit",
+        item_codes: &["your item codes"],
         applies_to_all_plans: true,
+        free_trial_amount: 1,
+        max_redemptions: 1,
+        redeem_by_date: "your redeem by date",
+        free_trial_unit: "your free trial unit",
+        duration: "your duration",
+        name: "your name",
+        applies_to_non_plan_charges: true,
+        unique_code_template: "your unique code template",
+        coupon_type: "your coupon type",
+        code: "your code",
+        redemption_resource: "your redemption resource",
         hosted_description: "your hosted description",
+        plan_codes: &["your plan codes"],
     };
     let response = client.create_coupon(args).send().await.unwrap();
     println!("{:#?}", response);
