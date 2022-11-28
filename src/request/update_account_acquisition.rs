@@ -5,7 +5,7 @@ use crate::RecurlyClient;
 
 That method takes required values as arguments. Set optional values using builder methods on this struct.*/
 pub struct UpdateAccountAcquisitionRequest<'a> {
-    pub(crate) client: &'a RecurlyClient,
+    pub(crate) http_client: &'a RecurlyClient,
     pub account_id: String,
     pub cost: Option<serde_json::Value>,
     pub channel: Option<String>,
@@ -15,7 +15,7 @@ pub struct UpdateAccountAcquisitionRequest<'a> {
 impl<'a> UpdateAccountAcquisitionRequest<'a> {
     pub async fn send(self) -> anyhow::Result<AccountAcquisition> {
         let mut r = self
-            .client
+            .http_client
             .client
             .put(
                 &format!(
@@ -34,7 +34,7 @@ impl<'a> UpdateAccountAcquisitionRequest<'a> {
         if let Some(ref unwrapped) = self.campaign {
             r = r.push_json(json!({ "campaign" : unwrapped }));
         }
-        r = self.client.authenticate(r);
+        r = self.http_client.authenticate(r);
         let res = r.send().await.unwrap().error_for_status();
         match res {
             Ok(res) => res.json().await.map_err(|e| anyhow::anyhow!("{:?}", e)),

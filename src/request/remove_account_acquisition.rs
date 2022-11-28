@@ -5,20 +5,20 @@ use crate::RecurlyClient;
 
 That method takes required values as arguments. Set optional values using builder methods on this struct.*/
 pub struct RemoveAccountAcquisitionRequest<'a> {
-    pub(crate) client: &'a RecurlyClient,
+    pub(crate) http_client: &'a RecurlyClient,
     pub account_id: String,
 }
 impl<'a> RemoveAccountAcquisitionRequest<'a> {
     pub async fn send(self) -> anyhow::Result<()> {
         let mut r = self
-            .client
+            .http_client
             .client
             .delete(
                 &format!(
                     "/accounts/{account_id}/acquisition", account_id = self.account_id
                 ),
             );
-        r = self.client.authenticate(r);
+        r = self.http_client.authenticate(r);
         let res = r.send().await.unwrap().error_for_status();
         match res {
             Ok(res) => Ok(()),

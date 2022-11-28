@@ -5,13 +5,13 @@ use crate::RecurlyClient;
 
 That method takes required values as arguments. Set optional values using builder methods on this struct.*/
 pub struct GetExternalSubscriptionRequest<'a> {
-    pub(crate) client: &'a RecurlyClient,
+    pub(crate) http_client: &'a RecurlyClient,
     pub external_subscription_id: String,
 }
 impl<'a> GetExternalSubscriptionRequest<'a> {
     pub async fn send(self) -> anyhow::Result<ExternalSubscription> {
         let mut r = self
-            .client
+            .http_client
             .client
             .get(
                 &format!(
@@ -19,7 +19,7 @@ impl<'a> GetExternalSubscriptionRequest<'a> {
                     external_subscription_id = self.external_subscription_id
                 ),
             );
-        r = self.client.authenticate(r);
+        r = self.http_client.authenticate(r);
         let res = r.send().await.unwrap().error_for_status();
         match res {
             Ok(res) => res.json().await.map_err(|e| anyhow::anyhow!("{:?}", e)),

@@ -5,7 +5,7 @@ use crate::RecurlyClient;
 
 That method takes required values as arguments. Set optional values using builder methods on this struct.*/
 pub struct CreateShippingMethodRequest<'a> {
-    pub(crate) client: &'a RecurlyClient,
+    pub(crate) http_client: &'a RecurlyClient,
     pub code: String,
     pub name: String,
     pub accounting_code: Option<String>,
@@ -13,7 +13,7 @@ pub struct CreateShippingMethodRequest<'a> {
 }
 impl<'a> CreateShippingMethodRequest<'a> {
     pub async fn send(self) -> anyhow::Result<ShippingMethod> {
-        let mut r = self.client.client.post("/shipping_methods");
+        let mut r = self.http_client.client.post("/shipping_methods");
         r = r.push_json(json!({ "code" : self.code }));
         r = r.push_json(json!({ "name" : self.name }));
         if let Some(ref unwrapped) = self.accounting_code {
@@ -22,7 +22,7 @@ impl<'a> CreateShippingMethodRequest<'a> {
         if let Some(ref unwrapped) = self.tax_code {
             r = r.push_json(json!({ "tax_code" : unwrapped }));
         }
-        r = self.client.authenticate(r);
+        r = self.http_client.authenticate(r);
         let res = r.send().await.unwrap().error_for_status();
         match res {
             Ok(res) => res.json().await.map_err(|e| anyhow::anyhow!("{:?}", e)),

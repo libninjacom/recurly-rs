@@ -5,13 +5,13 @@ use crate::RecurlyClient;
 
 That method takes required values as arguments. Set optional values using builder methods on this struct.*/
 pub struct GetTransactionRequest<'a> {
-    pub(crate) client: &'a RecurlyClient,
+    pub(crate) http_client: &'a RecurlyClient,
     pub transaction_id: String,
 }
 impl<'a> GetTransactionRequest<'a> {
     pub async fn send(self) -> anyhow::Result<Transaction> {
         let mut r = self
-            .client
+            .http_client
             .client
             .get(
                 &format!(
@@ -19,7 +19,7 @@ impl<'a> GetTransactionRequest<'a> {
                     .transaction_id
                 ),
             );
-        r = self.client.authenticate(r);
+        r = self.http_client.authenticate(r);
         let res = r.send().await.unwrap().error_for_status();
         match res {
             Ok(res) => res.json().await.map_err(|e| anyhow::anyhow!("{:?}", e)),

@@ -56,7 +56,7 @@ See the [Pagination Guide](/developers/guides/pagination.html) to learn how to u
 */
     pub fn list_sites(&self) -> request::ListSitesRequest {
         request::ListSitesRequest {
-            client: &self,
+            http_client: &self,
             ids: None,
             limit: None,
             order: None,
@@ -67,7 +67,7 @@ See the [Pagination Guide](/developers/guides/pagination.html) to learn how to u
     ///Fetch a site
     pub fn get_site(&self, site_id: &str) -> request::GetSiteRequest {
         request::GetSiteRequest {
-            client: &self,
+            http_client: &self,
             site_id: site_id.to_owned(),
         }
     }
@@ -76,7 +76,7 @@ See the [Pagination Guide](/developers/guides/pagination.html) to learn how to u
 See the [Pagination Guide](/developers/guides/pagination.html) to learn how to use pagination in the API and Client Libraries.*/
     pub fn list_accounts(&self) -> request::ListAccountsRequest {
         request::ListAccountsRequest {
-            client: &self,
+            http_client: &self,
             ids: None,
             limit: None,
             order: None,
@@ -94,7 +94,7 @@ See the [Pagination Guide](/developers/guides/pagination.html) to learn how to u
         args: request::CreateAccountRequired,
     ) -> request::CreateAccountRequest {
         request::CreateAccountRequest {
-            client: &self,
+            http_client: &self,
             code: args.code.to_owned(),
             acquisition: args.acquisition,
             shipping_addresses: args.shipping_addresses,
@@ -122,14 +122,14 @@ See the [Pagination Guide](/developers/guides/pagination.html) to learn how to u
     ///Fetch an account
     pub fn get_account(&self, account_id: &str) -> request::GetAccountRequest {
         request::GetAccountRequest {
-            client: &self,
+            http_client: &self,
             account_id: account_id.to_owned(),
         }
     }
     ///Update an account
     pub fn update_account(&self, account_id: &str) -> request::UpdateAccountRequest {
         request::UpdateAccountRequest {
-            client: &self,
+            http_client: &self,
             account_id: account_id.to_owned(),
             username: None,
             email: None,
@@ -160,7 +160,7 @@ Deactivating an account permanently deletes its billing information and cancels 
         account_id: &str,
     ) -> request::DeactivateAccountRequest {
         request::DeactivateAccountRequest {
-            client: &self,
+            http_client: &self,
             account_id: account_id.to_owned(),
         }
     }
@@ -170,7 +170,7 @@ Deactivating an account permanently deletes its billing information and cancels 
         account_id: &str,
     ) -> request::GetAccountAcquisitionRequest {
         request::GetAccountAcquisitionRequest {
-            client: &self,
+            http_client: &self,
             account_id: account_id.to_owned(),
         }
     }
@@ -180,7 +180,7 @@ Deactivating an account permanently deletes its billing information and cancels 
         account_id: &str,
     ) -> request::UpdateAccountAcquisitionRequest {
         request::UpdateAccountAcquisitionRequest {
-            client: &self,
+            http_client: &self,
             account_id: account_id.to_owned(),
             cost: None,
             channel: None,
@@ -194,7 +194,7 @@ Deactivating an account permanently deletes its billing information and cancels 
         account_id: &str,
     ) -> request::RemoveAccountAcquisitionRequest {
         request::RemoveAccountAcquisitionRequest {
-            client: &self,
+            http_client: &self,
             account_id: account_id.to_owned(),
         }
     }
@@ -206,7 +206,7 @@ Reactivating an account will restore its history but the customer will need to p
         account_id: &str,
     ) -> request::ReactivateAccountRequest {
         request::ReactivateAccountRequest {
-            client: &self,
+            http_client: &self,
             account_id: account_id.to_owned(),
         }
     }
@@ -216,14 +216,14 @@ Reactivating an account will restore its history but the customer will need to p
         account_id: &str,
     ) -> request::GetAccountBalanceRequest {
         request::GetAccountBalanceRequest {
-            client: &self,
+            http_client: &self,
             account_id: account_id.to_owned(),
         }
     }
     ///Fetch an account's billing information
     pub fn get_billing_info(&self, account_id: &str) -> request::GetBillingInfoRequest {
         request::GetBillingInfoRequest {
-            client: &self,
+            http_client: &self,
             account_id: account_id.to_owned(),
         }
     }
@@ -253,7 +253,7 @@ For external (not Recurly.js) tokenized payments you'll need the following requi
         account_id: &str,
     ) -> request::UpdateBillingInfoRequest {
         request::UpdateBillingInfoRequest {
-            client: &self,
+            http_client: &self,
             account_id: account_id.to_owned(),
             token_id: None,
             first_name: None,
@@ -297,7 +297,7 @@ You may remove any stored billing information for an account. If the account has
         account_id: &str,
     ) -> request::RemoveBillingInfoRequest {
         request::RemoveBillingInfoRequest {
-            client: &self,
+            http_client: &self,
             account_id: account_id.to_owned(),
         }
     }
@@ -307,7 +307,7 @@ You may remove any stored billing information for an account. If the account has
         account_id: &str,
     ) -> request::VerifyBillingInfoRequest {
         request::VerifyBillingInfoRequest {
-            client: &self,
+            http_client: &self,
             account_id: account_id.to_owned(),
             gateway_code: None,
         }
@@ -318,7 +318,7 @@ You may remove any stored billing information for an account. If the account has
         account_id: &str,
     ) -> request::VerifyBillingInfoCvvRequest {
         request::VerifyBillingInfoCvvRequest {
-            client: &self,
+            http_client: &self,
             account_id: account_id.to_owned(),
             verification_value: None,
         }
@@ -331,7 +331,7 @@ See the [Pagination Guide](/developers/guides/pagination.html) to learn how to u
         account_id: &str,
     ) -> request::ListBillingInfosRequest {
         request::ListBillingInfosRequest {
-            client: &self,
+            http_client: &self,
             account_id: account_id.to_owned(),
             ids: None,
             sort: None,
@@ -365,7 +365,7 @@ For external (not Recurly.js) tokenized payments you'll need the following requi
         account_id: &str,
     ) -> request::CreateBillingInfoRequest {
         request::CreateBillingInfoRequest {
-            client: &self,
+            http_client: &self,
             account_id: account_id.to_owned(),
             token_id: None,
             first_name: None,
@@ -408,7 +408,7 @@ For external (not Recurly.js) tokenized payments you'll need the following requi
         billing_info_id: &str,
     ) -> request::GetABillingInfoRequest {
         request::GetABillingInfoRequest {
-            client: &self,
+            http_client: &self,
             account_id: account_id.to_owned(),
             billing_info_id: billing_info_id.to_owned(),
         }
@@ -440,7 +440,7 @@ For external (not Recurly.js) tokenized payments you'll need the following requi
         billing_info_id: &str,
     ) -> request::UpdateABillingInfoRequest {
         request::UpdateABillingInfoRequest {
-            client: &self,
+            http_client: &self,
             account_id: account_id.to_owned(),
             billing_info_id: billing_info_id.to_owned(),
             token_id: None,
@@ -486,7 +486,7 @@ You may remove any stored billing information for an account. If the account has
         billing_info_id: &str,
     ) -> request::RemoveABillingInfoRequest {
         request::RemoveABillingInfoRequest {
-            client: &self,
+            http_client: &self,
             account_id: account_id.to_owned(),
             billing_info_id: billing_info_id.to_owned(),
         }
@@ -499,7 +499,7 @@ See the [Pagination Guide](/developers/guides/pagination.html) to learn how to u
         account_id: &str,
     ) -> request::ListAccountCouponRedemptionsRequest {
         request::ListAccountCouponRedemptionsRequest {
-            client: &self,
+            http_client: &self,
             account_id: account_id.to_owned(),
             ids: None,
             sort: None,
@@ -516,7 +516,7 @@ See the [Pagination Guide](/developers/guides/pagination.html) to learn how to u
         account_id: &str,
     ) -> request::ListActiveCouponRedemptionsRequest {
         request::ListActiveCouponRedemptionsRequest {
-            client: &self,
+            http_client: &self,
             account_id: account_id.to_owned(),
         }
     }
@@ -527,7 +527,7 @@ See the [Pagination Guide](/developers/guides/pagination.html) to learn how to u
         coupon_id: &str,
     ) -> request::CreateCouponRedemptionRequest {
         request::CreateCouponRedemptionRequest {
-            client: &self,
+            http_client: &self,
             account_id: account_id.to_owned(),
             coupon_id: coupon_id.to_owned(),
             currency: None,
@@ -540,7 +540,7 @@ See the [Pagination Guide](/developers/guides/pagination.html) to learn how to u
         account_id: &str,
     ) -> request::RemoveCouponRedemptionRequest {
         request::RemoveCouponRedemptionRequest {
-            client: &self,
+            http_client: &self,
             account_id: account_id.to_owned(),
         }
     }
@@ -552,7 +552,7 @@ See the [Pagination Guide](/developers/guides/pagination.html) to learn how to u
         account_id: &str,
     ) -> request::ListAccountCreditPaymentsRequest {
         request::ListAccountCreditPaymentsRequest {
-            client: &self,
+            http_client: &self,
             account_id: account_id.to_owned(),
             limit: None,
             order: None,
@@ -569,7 +569,7 @@ See the [Pagination Guide](/developers/guides/pagination.html) to learn how to u
         account_id: &str,
     ) -> request::ListAccountInvoicesRequest {
         request::ListAccountInvoicesRequest {
-            client: &self,
+            http_client: &self,
             account_id: account_id.to_owned(),
             ids: None,
             limit: None,
@@ -587,7 +587,7 @@ See the [Pagination Guide](/developers/guides/pagination.html) to learn how to u
         currency: &str,
     ) -> request::CreateInvoiceRequest {
         request::CreateInvoiceRequest {
-            client: &self,
+            http_client: &self,
             account_id: account_id.to_owned(),
             currency: currency.to_owned(),
             collection_method: None,
@@ -606,7 +606,7 @@ See the [Pagination Guide](/developers/guides/pagination.html) to learn how to u
         currency: &str,
     ) -> request::PreviewInvoiceRequest {
         request::PreviewInvoiceRequest {
-            client: &self,
+            http_client: &self,
             account_id: account_id.to_owned(),
             currency: currency.to_owned(),
             collection_method: None,
@@ -626,7 +626,7 @@ See the [Pagination Guide](/developers/guides/pagination.html) to learn how to u
         account_id: &str,
     ) -> request::ListAccountLineItemsRequest {
         request::ListAccountLineItemsRequest {
-            client: &self,
+            http_client: &self,
             account_id: account_id.to_owned(),
             ids: None,
             limit: None,
@@ -647,7 +647,7 @@ When using the Credit Invoices feature, utilize the purchases endpoint in order 
         args: request::CreateLineItemRequired,
     ) -> request::CreateLineItemRequest {
         request::CreateLineItemRequest {
-            client: &self,
+            http_client: &self,
             account_id: args.account_id.to_owned(),
             currency: args.currency.to_owned(),
             unit_amount: args.unit_amount,
@@ -678,7 +678,7 @@ See the [Pagination Guide](/developers/guides/pagination.html) to learn how to u
         account_id: &str,
     ) -> request::ListAccountNotesRequest {
         request::ListAccountNotesRequest {
-            client: &self,
+            http_client: &self,
             account_id: account_id.to_owned(),
             ids: None,
         }
@@ -690,7 +690,7 @@ See the [Pagination Guide](/developers/guides/pagination.html) to learn how to u
         account_note_id: &str,
     ) -> request::GetAccountNoteRequest {
         request::GetAccountNoteRequest {
-            client: &self,
+            http_client: &self,
             account_id: account_id.to_owned(),
             account_note_id: account_note_id.to_owned(),
         }
@@ -703,7 +703,7 @@ See the [Pagination Guide](/developers/guides/pagination.html) to learn how to u
         account_id: &str,
     ) -> request::ListShippingAddressesRequest {
         request::ListShippingAddressesRequest {
-            client: &self,
+            http_client: &self,
             account_id: account_id.to_owned(),
             ids: None,
             limit: None,
@@ -719,7 +719,7 @@ See the [Pagination Guide](/developers/guides/pagination.html) to learn how to u
         args: request::CreateShippingAddressRequired,
     ) -> request::CreateShippingAddressRequest {
         request::CreateShippingAddressRequest {
-            client: &self,
+            http_client: &self,
             account_id: args.account_id.to_owned(),
             nickname: None,
             first_name: args.first_name.to_owned(),
@@ -743,7 +743,7 @@ See the [Pagination Guide](/developers/guides/pagination.html) to learn how to u
         shipping_address_id: &str,
     ) -> request::GetShippingAddressRequest {
         request::GetShippingAddressRequest {
-            client: &self,
+            http_client: &self,
             account_id: account_id.to_owned(),
             shipping_address_id: shipping_address_id.to_owned(),
         }
@@ -755,7 +755,7 @@ See the [Pagination Guide](/developers/guides/pagination.html) to learn how to u
         shipping_address_id: &str,
     ) -> request::UpdateShippingAddressRequest {
         request::UpdateShippingAddressRequest {
-            client: &self,
+            http_client: &self,
             account_id: account_id.to_owned(),
             shipping_address_id: shipping_address_id.to_owned(),
             id: None,
@@ -781,7 +781,7 @@ See the [Pagination Guide](/developers/guides/pagination.html) to learn how to u
         shipping_address_id: &str,
     ) -> request::RemoveShippingAddressRequest {
         request::RemoveShippingAddressRequest {
-            client: &self,
+            http_client: &self,
             account_id: account_id.to_owned(),
             shipping_address_id: shipping_address_id.to_owned(),
         }
@@ -794,7 +794,7 @@ See the [Pagination Guide](/developers/guides/pagination.html) to learn how to u
         account_id: &str,
     ) -> request::ListAccountSubscriptionsRequest {
         request::ListAccountSubscriptionsRequest {
-            client: &self,
+            http_client: &self,
             account_id: account_id.to_owned(),
             ids: None,
             limit: None,
@@ -813,7 +813,7 @@ See the [Pagination Guide](/developers/guides/pagination.html) to learn how to u
         account_id: &str,
     ) -> request::ListAccountTransactionsRequest {
         request::ListAccountTransactionsRequest {
-            client: &self,
+            http_client: &self,
             account_id: account_id.to_owned(),
             ids: None,
             limit: None,
@@ -833,7 +833,7 @@ See the [Pagination Guide](/developers/guides/pagination.html) to learn how to u
         account_id: &str,
     ) -> request::ListChildAccountsRequest {
         request::ListChildAccountsRequest {
-            client: &self,
+            http_client: &self,
             account_id: account_id.to_owned(),
             ids: None,
             limit: None,
@@ -851,7 +851,7 @@ See the [Pagination Guide](/developers/guides/pagination.html) to learn how to u
 See the [Pagination Guide](/developers/guides/pagination.html) to learn how to use pagination in the API and Client Libraries.*/
     pub fn list_account_acquisition(&self) -> request::ListAccountAcquisitionRequest {
         request::ListAccountAcquisitionRequest {
-            client: &self,
+            http_client: &self,
             ids: None,
             limit: None,
             order: None,
@@ -865,7 +865,7 @@ See the [Pagination Guide](/developers/guides/pagination.html) to learn how to u
 See the [Pagination Guide](/developers/guides/pagination.html) to learn how to use pagination in the API and Client Libraries.*/
     pub fn list_coupons(&self) -> request::ListCouponsRequest {
         request::ListCouponsRequest {
-            client: &self,
+            http_client: &self,
             ids: None,
             limit: None,
             order: None,
@@ -880,7 +880,7 @@ See the [Pagination Guide](/developers/guides/pagination.html) to learn how to u
         args: request::CreateCouponRequired,
     ) -> request::CreateCouponRequest {
         request::CreateCouponRequest {
-            client: &self,
+            http_client: &self,
             name: args.name.to_owned(),
             max_redemptions: args.max_redemptions,
             max_redemptions_per_account: args.max_redemptions_per_account,
@@ -909,14 +909,14 @@ See the [Pagination Guide](/developers/guides/pagination.html) to learn how to u
     ///Fetch a coupon
     pub fn get_coupon(&self, coupon_id: &str) -> request::GetCouponRequest {
         request::GetCouponRequest {
-            client: &self,
+            http_client: &self,
             coupon_id: coupon_id.to_owned(),
         }
     }
     ///Update an active coupon
     pub fn update_coupon(&self, coupon_id: &str) -> request::UpdateCouponRequest {
         request::UpdateCouponRequest {
-            client: &self,
+            http_client: &self,
             coupon_id: coupon_id.to_owned(),
             name: None,
             max_redemptions: None,
@@ -934,7 +934,7 @@ Mark an existing Coupon as expired*/
         coupon_id: &str,
     ) -> request::DeactivateCouponRequest {
         request::DeactivateCouponRequest {
-            client: &self,
+            http_client: &self,
             coupon_id: coupon_id.to_owned(),
         }
     }
@@ -944,7 +944,7 @@ Mark an existing Coupon as expired*/
         coupon_id: &str,
     ) -> request::GenerateUniqueCouponCodesRequest {
         request::GenerateUniqueCouponCodesRequest {
-            client: &self,
+            http_client: &self,
             coupon_id: coupon_id.to_owned(),
             number_of_unique_codes: None,
         }
@@ -954,7 +954,7 @@ Mark an existing Coupon as expired*/
 Make an expired coupon redeemable again. You can change editable fields in this call.*/
     pub fn restore_coupon(&self, coupon_id: &str) -> request::RestoreCouponRequest {
         request::RestoreCouponRequest {
-            client: &self,
+            http_client: &self,
             coupon_id: coupon_id.to_owned(),
             name: None,
             max_redemptions: None,
@@ -972,7 +972,7 @@ See the [Pagination Guide](/developers/guides/pagination.html) to learn how to u
         coupon_id: &str,
     ) -> request::ListUniqueCouponCodesRequest {
         request::ListUniqueCouponCodesRequest {
-            client: &self,
+            http_client: &self,
             coupon_id: coupon_id.to_owned(),
             ids: None,
             limit: None,
@@ -987,7 +987,7 @@ See the [Pagination Guide](/developers/guides/pagination.html) to learn how to u
 See the [Pagination Guide](/developers/guides/pagination.html) to learn how to use pagination in the API and Client Libraries.*/
     pub fn list_credit_payments(&self) -> request::ListCreditPaymentsRequest {
         request::ListCreditPaymentsRequest {
-            client: &self,
+            http_client: &self,
             limit: None,
             order: None,
             sort: None,
@@ -1001,7 +1001,7 @@ See the [Pagination Guide](/developers/guides/pagination.html) to learn how to u
         credit_payment_id: &str,
     ) -> request::GetCreditPaymentRequest {
         request::GetCreditPaymentRequest {
-            client: &self,
+            http_client: &self,
             credit_payment_id: credit_payment_id.to_owned(),
         }
     }
@@ -1012,7 +1012,7 @@ See the [Pagination Guide](/developers/guides/pagination.html) to learn how to u
         &self,
     ) -> request::ListCustomFieldDefinitionsRequest {
         request::ListCustomFieldDefinitionsRequest {
-            client: &self,
+            http_client: &self,
             ids: None,
             limit: None,
             order: None,
@@ -1028,7 +1028,7 @@ See the [Pagination Guide](/developers/guides/pagination.html) to learn how to u
         custom_field_definition_id: &str,
     ) -> request::GetCustomFieldDefinitionRequest {
         request::GetCustomFieldDefinitionRequest {
-            client: &self,
+            http_client: &self,
             custom_field_definition_id: custom_field_definition_id.to_owned(),
         }
     }
@@ -1040,7 +1040,7 @@ See the [Pagination Guide](/developers/guides/pagination.html) to learn how to u
         invoice_template_id: &str,
     ) -> request::ListInvoiceTemplateAccountsRequest {
         request::ListInvoiceTemplateAccountsRequest {
-            client: &self,
+            http_client: &self,
             invoice_template_id: invoice_template_id.to_owned(),
             ids: None,
             limit: None,
@@ -1058,7 +1058,7 @@ See the [Pagination Guide](/developers/guides/pagination.html) to learn how to u
 See the [Pagination Guide](/developers/guides/pagination.html) to learn how to use pagination in the API and Client Libraries.*/
     pub fn list_items(&self) -> request::ListItemsRequest {
         request::ListItemsRequest {
-            client: &self,
+            http_client: &self,
             ids: None,
             limit: None,
             order: None,
@@ -1071,7 +1071,7 @@ See the [Pagination Guide](/developers/guides/pagination.html) to learn how to u
     ///Create a new item
     pub fn create_item(&self, code: &str, name: &str) -> request::CreateItemRequest {
         request::CreateItemRequest {
-            client: &self,
+            http_client: &self,
             code: code.to_owned(),
             name: name.to_owned(),
             description: None,
@@ -1089,14 +1089,14 @@ See the [Pagination Guide](/developers/guides/pagination.html) to learn how to u
     ///Fetch an item
     pub fn get_item(&self, item_id: &str) -> request::GetItemRequest {
         request::GetItemRequest {
-            client: &self,
+            http_client: &self,
             item_id: item_id.to_owned(),
         }
     }
     ///Update an active item
     pub fn update_item(&self, item_id: &str) -> request::UpdateItemRequest {
         request::UpdateItemRequest {
-            client: &self,
+            http_client: &self,
             item_id: item_id.to_owned(),
             code: None,
             name: None,
@@ -1117,7 +1117,7 @@ See the [Pagination Guide](/developers/guides/pagination.html) to learn how to u
 Deactivating an item makes it unavailable for new purchases. It will not affect existing line items.*/
     pub fn deactivate_item(&self, item_id: &str) -> request::DeactivateItemRequest {
         request::DeactivateItemRequest {
-            client: &self,
+            http_client: &self,
             item_id: item_id.to_owned(),
         }
     }
@@ -1126,7 +1126,7 @@ Deactivating an item makes it unavailable for new purchases. It will not affect 
 Reactivating an item makes it available for new purchases. It will not affect existing line items.*/
     pub fn reactivate_item(&self, item_id: &str) -> request::ReactivateItemRequest {
         request::ReactivateItemRequest {
-            client: &self,
+            http_client: &self,
             item_id: item_id.to_owned(),
         }
     }
@@ -1135,7 +1135,7 @@ Reactivating an item makes it available for new purchases. It will not affect ex
 See the [Pagination Guide](/developers/guides/pagination.html) to learn how to use pagination in the API and Client Libraries.*/
     pub fn list_measured_unit(&self) -> request::ListMeasuredUnitRequest {
         request::ListMeasuredUnitRequest {
-            client: &self,
+            http_client: &self,
             ids: None,
             limit: None,
             order: None,
@@ -1152,7 +1152,7 @@ See the [Pagination Guide](/developers/guides/pagination.html) to learn how to u
         display_name: &str,
     ) -> request::CreateMeasuredUnitRequest {
         request::CreateMeasuredUnitRequest {
-            client: &self,
+            http_client: &self,
             name: name.to_owned(),
             display_name: display_name.to_owned(),
             description: None,
@@ -1164,7 +1164,7 @@ See the [Pagination Guide](/developers/guides/pagination.html) to learn how to u
         measured_unit_id: &str,
     ) -> request::GetMeasuredUnitRequest {
         request::GetMeasuredUnitRequest {
-            client: &self,
+            http_client: &self,
             measured_unit_id: measured_unit_id.to_owned(),
         }
     }
@@ -1174,7 +1174,7 @@ See the [Pagination Guide](/developers/guides/pagination.html) to learn how to u
         measured_unit_id: &str,
     ) -> request::UpdateMeasuredUnitRequest {
         request::UpdateMeasuredUnitRequest {
-            client: &self,
+            http_client: &self,
             measured_unit_id: measured_unit_id.to_owned(),
             name: None,
             display_name: None,
@@ -1189,7 +1189,7 @@ A mesured unit cannot be deleted if it is used by an active plan.*/
         measured_unit_id: &str,
     ) -> request::RemoveMeasuredUnitRequest {
         request::RemoveMeasuredUnitRequest {
-            client: &self,
+            http_client: &self,
             measured_unit_id: measured_unit_id.to_owned(),
         }
     }
@@ -1198,7 +1198,7 @@ A mesured unit cannot be deleted if it is used by an active plan.*/
 See the [Pagination Guide](/developers/guides/pagination.html) to learn how to use pagination in the API and Client Libraries.*/
     pub fn list_external_products(&self) -> request::ListExternalProductsRequest {
         request::ListExternalProductsRequest {
-            client: &self,
+            http_client: &self,
             sort: None,
         }
     }
@@ -1208,7 +1208,7 @@ See the [Pagination Guide](/developers/guides/pagination.html) to learn how to u
         external_product_id: &str,
     ) -> request::GetExternalProductRequest {
         request::GetExternalProductRequest {
-            client: &self,
+            http_client: &self,
             external_product_id: external_product_id.to_owned(),
         }
     }
@@ -1219,7 +1219,7 @@ See the [Pagination Guide](/developers/guides/pagination.html) to learn how to u
         &self,
     ) -> request::ListExternalSubscriptionsRequest {
         request::ListExternalSubscriptionsRequest {
-            client: &self,
+            http_client: &self,
             sort: None,
         }
     }
@@ -1229,7 +1229,7 @@ See the [Pagination Guide](/developers/guides/pagination.html) to learn how to u
         external_subscription_id: &str,
     ) -> request::GetExternalSubscriptionRequest {
         request::GetExternalSubscriptionRequest {
-            client: &self,
+            http_client: &self,
             external_subscription_id: external_subscription_id.to_owned(),
         }
     }
@@ -1238,7 +1238,7 @@ See the [Pagination Guide](/developers/guides/pagination.html) to learn how to u
 See the [Pagination Guide](/developers/guides/pagination.html) to learn how to use pagination in the API and Client Libraries.*/
     pub fn list_invoices(&self) -> request::ListInvoicesRequest {
         request::ListInvoicesRequest {
-            client: &self,
+            http_client: &self,
             ids: None,
             limit: None,
             order: None,
@@ -1251,14 +1251,14 @@ See the [Pagination Guide](/developers/guides/pagination.html) to learn how to u
     ///Fetch an invoice
     pub fn get_invoice(&self, invoice_id: &str) -> request::GetInvoiceRequest {
         request::GetInvoiceRequest {
-            client: &self,
+            http_client: &self,
             invoice_id: invoice_id.to_owned(),
         }
     }
     ///Update an invoice
     pub fn update_invoice(&self, invoice_id: &str) -> request::UpdateInvoiceRequest {
         request::UpdateInvoiceRequest {
-            client: &self,
+            http_client: &self,
             invoice_id: invoice_id.to_owned(),
             po_number: None,
             vat_reverse_charge_notes: None,
@@ -1271,7 +1271,7 @@ See the [Pagination Guide](/developers/guides/pagination.html) to learn how to u
     ///Fetch an invoice as a PDF
     pub fn get_invoice_pdf(&self, invoice_id: &str) -> request::GetInvoicePdfRequest {
         request::GetInvoicePdfRequest {
-            client: &self,
+            http_client: &self,
             invoice_id: invoice_id.to_owned(),
         }
     }
@@ -1280,12 +1280,10 @@ See the [Pagination Guide](/developers/guides/pagination.html) to learn how to u
 Apply credit payment to the outstanding balance on an existing charge invoice from an account’s available balance from existing credit invoices.*/
     pub fn apply_credit_balance(
         &self,
-        site_id: &str,
         invoice_id: &str,
     ) -> request::ApplyCreditBalanceRequest {
         request::ApplyCreditBalanceRequest {
-            client: &self,
-            site_id: site_id.to_owned(),
+            http_client: &self,
             invoice_id: invoice_id.to_owned(),
         }
     }
@@ -1294,7 +1292,7 @@ Apply credit payment to the outstanding balance on an existing charge invoice fr
 Force a collection attempt using the stored billing information. This will trigger a transaction outside of Recurly's normal retry logic.*/
     pub fn collect_invoice(&self, invoice_id: &str) -> request::CollectInvoiceRequest {
         request::CollectInvoiceRequest {
-            client: &self,
+            http_client: &self,
             invoice_id: invoice_id.to_owned(),
             three_d_secure_action_result_token_id: None,
             transaction_type: None,
@@ -1312,7 +1310,7 @@ Only invoices with the `pending`, `processing` or `past_due` states can be marke
         invoice_id: &str,
     ) -> request::MarkInvoiceFailedRequest {
         request::MarkInvoiceFailedRequest {
-            client: &self,
+            http_client: &self,
             invoice_id: invoice_id.to_owned(),
         }
     }
@@ -1327,14 +1325,14 @@ Only invoices with the `pending`, `processing`, `past_due` or `failed` states ca
         invoice_id: &str,
     ) -> request::MarkInvoiceSuccessfulRequest {
         request::MarkInvoiceSuccessfulRequest {
-            client: &self,
+            http_client: &self,
             invoice_id: invoice_id.to_owned(),
         }
     }
     ///Reopen a closed, manual invoice
     pub fn reopen_invoice(&self, invoice_id: &str) -> request::ReopenInvoiceRequest {
         request::ReopenInvoiceRequest {
-            client: &self,
+            http_client: &self,
             invoice_id: invoice_id.to_owned(),
         }
     }
@@ -1343,7 +1341,7 @@ Only invoices with the `pending`, `processing`, `past_due` or `failed` states ca
 Invoice must be a credit invoice (`type=credit`) and cannot be closed (`state=closed`), processing (`state=processing`), or already voided.*/
     pub fn void_invoice(&self, invoice_id: &str) -> request::VoidInvoiceRequest {
         request::VoidInvoiceRequest {
-            client: &self,
+            http_client: &self,
             invoice_id: invoice_id.to_owned(),
         }
     }
@@ -1355,7 +1353,7 @@ This endpoint allows you to record an offline payment that was not captured thro
         invoice_id: &str,
     ) -> request::RecordExternalTransactionRequest {
         request::RecordExternalTransactionRequest {
-            client: &self,
+            http_client: &self,
             invoice_id: invoice_id.to_owned(),
             payment_method: None,
             description: None,
@@ -1371,7 +1369,7 @@ See the [Pagination Guide](/developers/guides/pagination.html) to learn how to u
         invoice_id: &str,
     ) -> request::ListInvoiceLineItemsRequest {
         request::ListInvoiceLineItemsRequest {
-            client: &self,
+            http_client: &self,
             invoice_id: invoice_id.to_owned(),
             ids: None,
             limit: None,
@@ -1392,7 +1390,7 @@ See the [Pagination Guide](/developers/guides/pagination.html) to learn how to u
         invoice_id: &str,
     ) -> request::ListInvoiceCouponRedemptionsRequest {
         request::ListInvoiceCouponRedemptionsRequest {
-            client: &self,
+            http_client: &self,
             invoice_id: invoice_id.to_owned(),
             ids: None,
             sort: None,
@@ -1413,7 +1411,7 @@ See the [Pagination Guide](/developers/guides/pagination.html) to learn how to u
         invoice_id: &str,
     ) -> request::ListRelatedInvoicesRequest {
         request::ListRelatedInvoicesRequest {
-            client: &self,
+            http_client: &self,
             invoice_id: invoice_id.to_owned(),
         }
     }
@@ -1431,7 +1429,7 @@ simplest way is to do `type=amount` without specifiying an `amount`.
         type_: &str,
     ) -> request::RefundInvoiceRequest {
         request::RefundInvoiceRequest {
-            client: &self,
+            http_client: &self,
             invoice_id: invoice_id.to_owned(),
             type_: type_.to_owned(),
             amount: None,
@@ -1446,7 +1444,7 @@ simplest way is to do `type=amount` without specifiying an `amount`.
 See the [Pagination Guide](/developers/guides/pagination.html) to learn how to use pagination in the API and Client Libraries.*/
     pub fn list_line_items(&self) -> request::ListLineItemsRequest {
         request::ListLineItemsRequest {
-            client: &self,
+            http_client: &self,
             ids: None,
             limit: None,
             order: None,
@@ -1461,7 +1459,7 @@ See the [Pagination Guide](/developers/guides/pagination.html) to learn how to u
     ///Fetch a line item
     pub fn get_line_item(&self, line_item_id: &str) -> request::GetLineItemRequest {
         request::GetLineItemRequest {
-            client: &self,
+            http_client: &self,
             line_item_id: line_item_id.to_owned(),
         }
     }
@@ -1471,7 +1469,7 @@ See the [Pagination Guide](/developers/guides/pagination.html) to learn how to u
         line_item_id: &str,
     ) -> request::RemoveLineItemRequest {
         request::RemoveLineItemRequest {
-            client: &self,
+            http_client: &self,
             line_item_id: line_item_id.to_owned(),
         }
     }
@@ -1480,7 +1478,7 @@ See the [Pagination Guide](/developers/guides/pagination.html) to learn how to u
 See the [Pagination Guide](/developers/guides/pagination.html) to learn how to use pagination in the API and Client Libraries.*/
     pub fn list_plans(&self) -> request::ListPlansRequest {
         request::ListPlansRequest {
-            client: &self,
+            http_client: &self,
             ids: None,
             limit: None,
             order: None,
@@ -1498,7 +1496,7 @@ See the [Pagination Guide](/developers/guides/pagination.html) to learn how to u
         currencies: Vec<PlanPricing>,
     ) -> request::CreatePlanRequest {
         request::CreatePlanRequest {
-            client: &self,
+            http_client: &self,
             code: code.to_owned(),
             name: name.to_owned(),
             description: None,
@@ -1530,14 +1528,14 @@ See the [Pagination Guide](/developers/guides/pagination.html) to learn how to u
     ///Fetch a plan
     pub fn get_plan(&self, plan_id: &str) -> request::GetPlanRequest {
         request::GetPlanRequest {
-            client: &self,
+            http_client: &self,
             plan_id: plan_id.to_owned(),
         }
     }
     ///Update a plan
     pub fn update_plan(&self, plan_id: &str) -> request::UpdatePlanRequest {
         request::UpdatePlanRequest {
-            client: &self,
+            http_client: &self,
             plan_id: plan_id.to_owned(),
             id: None,
             code: None,
@@ -1567,7 +1565,7 @@ See the [Pagination Guide](/developers/guides/pagination.html) to learn how to u
     ///Remove a plan
     pub fn remove_plan(&self, plan_id: &str) -> request::RemovePlanRequest {
         request::RemovePlanRequest {
-            client: &self,
+            http_client: &self,
             plan_id: plan_id.to_owned(),
         }
     }
@@ -1576,7 +1574,7 @@ See the [Pagination Guide](/developers/guides/pagination.html) to learn how to u
 See the [Pagination Guide](/developers/guides/pagination.html) to learn how to use pagination in the API and Client Libraries.*/
     pub fn list_plan_add_ons(&self, plan_id: &str) -> request::ListPlanAddOnsRequest {
         request::ListPlanAddOnsRequest {
-            client: &self,
+            http_client: &self,
             plan_id: plan_id.to_owned(),
             ids: None,
             limit: None,
@@ -1595,7 +1593,7 @@ See the [Pagination Guide](/developers/guides/pagination.html) to learn how to u
         name: &str,
     ) -> request::CreatePlanAddOnRequest {
         request::CreatePlanAddOnRequest {
-            client: &self,
+            http_client: &self,
             plan_id: plan_id.to_owned(),
             item_code: None,
             item_id: None,
@@ -1629,7 +1627,7 @@ See the [Pagination Guide](/developers/guides/pagination.html) to learn how to u
         add_on_id: &str,
     ) -> request::GetPlanAddOnRequest {
         request::GetPlanAddOnRequest {
-            client: &self,
+            http_client: &self,
             plan_id: plan_id.to_owned(),
             add_on_id: add_on_id.to_owned(),
         }
@@ -1641,7 +1639,7 @@ See the [Pagination Guide](/developers/guides/pagination.html) to learn how to u
         add_on_id: &str,
     ) -> request::UpdatePlanAddOnRequest {
         request::UpdatePlanAddOnRequest {
-            client: &self,
+            http_client: &self,
             plan_id: plan_id.to_owned(),
             add_on_id: add_on_id.to_owned(),
             id: None,
@@ -1671,7 +1669,7 @@ See the [Pagination Guide](/developers/guides/pagination.html) to learn how to u
         add_on_id: &str,
     ) -> request::RemovePlanAddOnRequest {
         request::RemovePlanAddOnRequest {
-            client: &self,
+            http_client: &self,
             plan_id: plan_id.to_owned(),
             add_on_id: add_on_id.to_owned(),
         }
@@ -1681,7 +1679,7 @@ See the [Pagination Guide](/developers/guides/pagination.html) to learn how to u
 See the [Pagination Guide](/developers/guides/pagination.html) to learn how to use pagination in the API and Client Libraries.*/
     pub fn list_add_ons(&self) -> request::ListAddOnsRequest {
         request::ListAddOnsRequest {
-            client: &self,
+            http_client: &self,
             ids: None,
             limit: None,
             order: None,
@@ -1694,7 +1692,7 @@ See the [Pagination Guide](/developers/guides/pagination.html) to learn how to u
     ///Fetch an add-on
     pub fn get_add_on(&self, add_on_id: &str) -> request::GetAddOnRequest {
         request::GetAddOnRequest {
-            client: &self,
+            http_client: &self,
             add_on_id: add_on_id.to_owned(),
         }
     }
@@ -1703,7 +1701,7 @@ See the [Pagination Guide](/developers/guides/pagination.html) to learn how to u
 See the [Pagination Guide](/developers/guides/pagination.html) to learn how to use pagination in the API and Client Libraries.*/
     pub fn list_shipping_methods(&self) -> request::ListShippingMethodsRequest {
         request::ListShippingMethodsRequest {
-            client: &self,
+            http_client: &self,
             ids: None,
             limit: None,
             order: None,
@@ -1719,7 +1717,7 @@ See the [Pagination Guide](/developers/guides/pagination.html) to learn how to u
         name: &str,
     ) -> request::CreateShippingMethodRequest {
         request::CreateShippingMethodRequest {
-            client: &self,
+            http_client: &self,
             code: code.to_owned(),
             name: name.to_owned(),
             accounting_code: None,
@@ -1732,7 +1730,7 @@ See the [Pagination Guide](/developers/guides/pagination.html) to learn how to u
         shipping_method_id: &str,
     ) -> request::GetShippingMethodRequest {
         request::GetShippingMethodRequest {
-            client: &self,
+            http_client: &self,
             shipping_method_id: shipping_method_id.to_owned(),
         }
     }
@@ -1742,7 +1740,7 @@ See the [Pagination Guide](/developers/guides/pagination.html) to learn how to u
         shipping_method_id: &str,
     ) -> request::UpdateShippingMethodRequest {
         request::UpdateShippingMethodRequest {
-            client: &self,
+            http_client: &self,
             shipping_method_id: shipping_method_id.to_owned(),
             code: None,
             name: None,
@@ -1758,7 +1756,7 @@ Deactivating a shipping method makes it unavailable for new subscriptions or pur
         shipping_method_id: &str,
     ) -> request::DeactivateShippingMethodRequest {
         request::DeactivateShippingMethodRequest {
-            client: &self,
+            http_client: &self,
             shipping_method_id: shipping_method_id.to_owned(),
         }
     }
@@ -1767,7 +1765,7 @@ Deactivating a shipping method makes it unavailable for new subscriptions or pur
 See the [Pagination Guide](/developers/guides/pagination.html) to learn how to use pagination in the API and Client Libraries.*/
     pub fn list_subscriptions(&self) -> request::ListSubscriptionsRequest {
         request::ListSubscriptionsRequest {
-            client: &self,
+            http_client: &self,
             ids: None,
             limit: None,
             order: None,
@@ -1785,7 +1783,7 @@ See the [Pagination Guide](/developers/guides/pagination.html) to learn how to u
         currency: &str,
     ) -> request::CreateSubscriptionRequest {
         request::CreateSubscriptionRequest {
-            client: &self,
+            http_client: &self,
             plan_code: plan_code.to_owned(),
             plan_id: None,
             account,
@@ -1821,7 +1819,7 @@ See the [Pagination Guide](/developers/guides/pagination.html) to learn how to u
         subscription_id: &str,
     ) -> request::GetSubscriptionRequest {
         request::GetSubscriptionRequest {
-            client: &self,
+            http_client: &self,
             subscription_id: subscription_id.to_owned(),
         }
     }
@@ -1833,7 +1831,7 @@ This only lets you change the subscription settings that have no impact on the b
         subscription_id: &str,
     ) -> request::UpdateSubscriptionRequest {
         request::UpdateSubscriptionRequest {
-            client: &self,
+            http_client: &self,
             subscription_id: subscription_id.to_owned(),
             collection_method: None,
             custom_fields: None,
@@ -1863,7 +1861,7 @@ If the subscription has a paid invoice you may choose to refund all, part or non
         subscription_id: &str,
     ) -> request::TerminateSubscriptionRequest {
         request::TerminateSubscriptionRequest {
-            client: &self,
+            http_client: &self,
             subscription_id: subscription_id.to_owned(),
             refund: None,
             charge: None,
@@ -1877,7 +1875,7 @@ A canceled subscription will continue through its current billing cycle. At the 
         subscription_id: &str,
     ) -> request::CancelSubscriptionRequest {
         request::CancelSubscriptionRequest {
-            client: &self,
+            http_client: &self,
             subscription_id: subscription_id.to_owned(),
             timeframe: None,
         }
@@ -1893,7 +1891,7 @@ Expired or failed subscriptions cannot be reactivated; instead a new subscriptio
         subscription_id: &str,
     ) -> request::ReactivateSubscriptionRequest {
         request::ReactivateSubscriptionRequest {
-            client: &self,
+            http_client: &self,
             subscription_id: subscription_id.to_owned(),
         }
     }
@@ -1912,7 +1910,7 @@ Expired, cancelled, or failed subscriptions cannot be paused.
         remaining_pause_cycles: i64,
     ) -> request::PauseSubscriptionRequest {
         request::PauseSubscriptionRequest {
-            client: &self,
+            http_client: &self,
             subscription_id: subscription_id.to_owned(),
             remaining_pause_cycles,
         }
@@ -1930,7 +1928,7 @@ or failed subscriptions cannot be resumed.
         subscription_id: &str,
     ) -> request::ResumeSubscriptionRequest {
         request::ResumeSubscriptionRequest {
-            client: &self,
+            http_client: &self,
             subscription_id: subscription_id.to_owned(),
         }
     }
@@ -1939,7 +1937,7 @@ or failed subscriptions cannot be resumed.
 This will immediately convert a trial subscription to a fully active paid subscription, creating and collecting an invoice for auto-collecting subsriptions.  If the invoice cannot be collected, the subscription will remain in trial. The subscription must be in a trial. Active, paused, expired, cancelled, or failed subscriptions cannot be converted.*/
     pub fn convert_trial(&self, subscription_id: &str) -> request::ConvertTrialRequest {
         request::ConvertTrialRequest {
-            client: &self,
+            http_client: &self,
             subscription_id: subscription_id.to_owned(),
         }
     }
@@ -1951,7 +1949,7 @@ The subscriptions's renewal invoice(s) will be returned if they exist; if they d
         subscription_id: &str,
     ) -> request::GetPreviewRenewalRequest {
         request::GetPreviewRenewalRequest {
-            client: &self,
+            http_client: &self,
             subscription_id: subscription_id.to_owned(),
         }
     }
@@ -1961,7 +1959,7 @@ The subscriptions's renewal invoice(s) will be returned if they exist; if they d
         subscription_id: &str,
     ) -> request::GetSubscriptionChangeRequest {
         request::GetSubscriptionChangeRequest {
-            client: &self,
+            http_client: &self,
             subscription_id: subscription_id.to_owned(),
         }
     }
@@ -1982,7 +1980,7 @@ exists, a 422 Unprocessable Entity validation error will be returned.
         subscription_id: &str,
     ) -> request::CreateSubscriptionChangeRequest {
         request::CreateSubscriptionChangeRequest {
-            client: &self,
+            http_client: &self,
             subscription_id: subscription_id.to_owned(),
             timeframe: None,
             plan_id: None,
@@ -2011,7 +2009,7 @@ Deleting the pending subscription change will cause the current subscription set
         subscription_id: &str,
     ) -> request::RemoveSubscriptionChangeRequest {
         request::RemoveSubscriptionChangeRequest {
-            client: &self,
+            http_client: &self,
             subscription_id: subscription_id.to_owned(),
         }
     }
@@ -2023,7 +2021,7 @@ Calling this will not save the subscription change or overwrite an existing chan
         subscription_id: &str,
     ) -> request::PreviewSubscriptionChangeRequest {
         request::PreviewSubscriptionChangeRequest {
-            client: &self,
+            http_client: &self,
             subscription_id: subscription_id.to_owned(),
             timeframe: None,
             plan_id: None,
@@ -2052,7 +2050,7 @@ See the [Pagination Guide](/developers/guides/pagination.html) to learn how to u
         subscription_id: &str,
     ) -> request::ListSubscriptionInvoicesRequest {
         request::ListSubscriptionInvoicesRequest {
-            client: &self,
+            http_client: &self,
             subscription_id: subscription_id.to_owned(),
             ids: None,
             limit: None,
@@ -2071,7 +2069,7 @@ See the [Pagination Guide](/developers/guides/pagination.html) to learn how to u
         subscription_id: &str,
     ) -> request::ListSubscriptionLineItemsRequest {
         request::ListSubscriptionLineItemsRequest {
-            client: &self,
+            http_client: &self,
             subscription_id: subscription_id.to_owned(),
             ids: None,
             limit: None,
@@ -2092,7 +2090,7 @@ See the [Pagination Guide](/developers/guides/pagination.html) to learn how to u
         subscription_id: &str,
     ) -> request::ListSubscriptionCouponRedemptionsRequest {
         request::ListSubscriptionCouponRedemptionsRequest {
-            client: &self,
+            http_client: &self,
             subscription_id: subscription_id.to_owned(),
             ids: None,
             sort: None,
@@ -2107,7 +2105,7 @@ See the [Pagination Guide](/developers/guides/pagination.html) to learn how to u
         add_on_id: &str,
     ) -> request::ListUsageRequest {
         request::ListUsageRequest {
-            client: &self,
+            http_client: &self,
             subscription_id: subscription_id.to_owned(),
             add_on_id: add_on_id.to_owned(),
             ids: None,
@@ -2126,7 +2124,7 @@ See the [Pagination Guide](/developers/guides/pagination.html) to learn how to u
         add_on_id: &str,
     ) -> request::CreateUsageRequest {
         request::CreateUsageRequest {
-            client: &self,
+            http_client: &self,
             subscription_id: subscription_id.to_owned(),
             add_on_id: add_on_id.to_owned(),
             merchant_tag: None,
@@ -2138,14 +2136,14 @@ See the [Pagination Guide](/developers/guides/pagination.html) to learn how to u
     ///Get a usage record
     pub fn get_usage(&self, usage_id: &str) -> request::GetUsageRequest {
         request::GetUsageRequest {
-            client: &self,
+            http_client: &self,
             usage_id: usage_id.to_owned(),
         }
     }
     ///Update a usage record
     pub fn update_usage(&self, usage_id: &str) -> request::UpdateUsageRequest {
         request::UpdateUsageRequest {
-            client: &self,
+            http_client: &self,
             usage_id: usage_id.to_owned(),
             merchant_tag: None,
             amount: None,
@@ -2156,7 +2154,7 @@ See the [Pagination Guide](/developers/guides/pagination.html) to learn how to u
     ///Delete a usage record.
     pub fn remove_usage(&self, usage_id: &str) -> request::RemoveUsageRequest {
         request::RemoveUsageRequest {
-            client: &self,
+            http_client: &self,
             usage_id: usage_id.to_owned(),
         }
     }
@@ -2165,7 +2163,7 @@ See the [Pagination Guide](/developers/guides/pagination.html) to learn how to u
 See the [Pagination Guide](/developers/guides/pagination.html) to learn how to use pagination in the API and Client Libraries.*/
     pub fn list_transactions(&self) -> request::ListTransactionsRequest {
         request::ListTransactionsRequest {
-            client: &self,
+            http_client: &self,
             ids: None,
             limit: None,
             order: None,
@@ -2182,7 +2180,7 @@ See the [Pagination Guide](/developers/guides/pagination.html) to learn how to u
         transaction_id: &str,
     ) -> request::GetTransactionRequest {
         request::GetTransactionRequest {
-            client: &self,
+            http_client: &self,
             transaction_id: transaction_id.to_owned(),
         }
     }
@@ -2192,7 +2190,7 @@ See the [Pagination Guide](/developers/guides/pagination.html) to learn how to u
         unique_coupon_code_id: &str,
     ) -> request::GetUniqueCouponCodeRequest {
         request::GetUniqueCouponCodeRequest {
-            client: &self,
+            http_client: &self,
             unique_coupon_code_id: unique_coupon_code_id.to_owned(),
         }
     }
@@ -2204,7 +2202,7 @@ Expire a unique code, making that specific code no longer redeemable. The parent
         unique_coupon_code_id: &str,
     ) -> request::DeactivateUniqueCouponCodeRequest {
         request::DeactivateUniqueCouponCodeRequest {
-            client: &self,
+            http_client: &self,
             unique_coupon_code_id: unique_coupon_code_id.to_owned(),
         }
     }
@@ -2214,7 +2212,7 @@ Expire a unique code, making that specific code no longer redeemable. The parent
         unique_coupon_code_id: &str,
     ) -> request::ReactivateUniqueCouponCodeRequest {
         request::ReactivateUniqueCouponCodeRequest {
-            client: &self,
+            http_client: &self,
             unique_coupon_code_id: unique_coupon_code_id.to_owned(),
         }
     }
@@ -2227,7 +2225,7 @@ A purchase is a checkout containing at least one or more subscriptions or one-ti
         account: AccountPurchase,
     ) -> request::CreatePurchaseRequest {
         request::CreatePurchaseRequest {
-            client: &self,
+            http_client: &self,
             currency: currency.to_owned(),
             account,
             billing_info_id: None,
@@ -2256,7 +2254,7 @@ A purchase is a checkout containing at least one or more subscriptions or one-ti
         account: AccountPurchase,
     ) -> request::PreviewPurchaseRequest {
         request::PreviewPurchaseRequest {
-            client: &self,
+            http_client: &self,
             currency: currency.to_owned(),
             account,
             billing_info_id: None,
@@ -2291,7 +2289,7 @@ For additional information regarding shipping fees, please see https://docs.recu
         account: AccountPurchase,
     ) -> request::CreatePendingPurchaseRequest {
         request::CreatePendingPurchaseRequest {
-            client: &self,
+            http_client: &self,
             currency: currency.to_owned(),
             account,
             billing_info_id: None,
@@ -2316,7 +2314,7 @@ For additional information regarding shipping fees, please see https://docs.recu
 Returns a list of dates for which export files are available for download.*/
     pub fn get_export_dates(&self) -> request::GetExportDatesRequest {
         request::GetExportDatesRequest {
-            client: &self,
+            http_client: &self,
         }
     }
     /**List of the export files that are available to download.
@@ -2324,7 +2322,7 @@ Returns a list of dates for which export files are available for download.*/
 Returns a list of presigned URLs to download export files for the given date, with their MD5 sums.*/
     pub fn get_export_files(&self, export_date: &str) -> request::GetExportFilesRequest {
         request::GetExportFilesRequest {
-            client: &self,
+            http_client: &self,
             export_date: export_date.to_owned(),
         }
     }
@@ -2333,7 +2331,7 @@ Returns a list of presigned URLs to download export files for the given date, wi
 See the [Pagination Guide](/developers/guides/pagination.html) to learn how to use pagination in the API and Client Libraries.*/
     pub fn list_dunning_campaigns(&self) -> request::ListDunningCampaignsRequest {
         request::ListDunningCampaignsRequest {
-            client: &self,
+            http_client: &self,
             sort: None,
         }
     }
@@ -2343,7 +2341,7 @@ See the [Pagination Guide](/developers/guides/pagination.html) to learn how to u
         dunning_campaign_id: &str,
     ) -> request::GetDunningCampaignRequest {
         request::GetDunningCampaignRequest {
-            client: &self,
+            http_client: &self,
             dunning_campaign_id: dunning_campaign_id.to_owned(),
         }
     }
@@ -2353,7 +2351,7 @@ See the [Pagination Guide](/developers/guides/pagination.html) to learn how to u
         dunning_campaign_id: &str,
     ) -> request::PutDunningCampaignBulkUpdateRequest {
         request::PutDunningCampaignBulkUpdateRequest {
-            client: &self,
+            http_client: &self,
             dunning_campaign_id: dunning_campaign_id.to_owned(),
             plan_codes: None,
             plan_ids: None,
@@ -2364,7 +2362,7 @@ See the [Pagination Guide](/developers/guides/pagination.html) to learn how to u
 See the [Pagination Guide](/developers/guides/pagination.html) to learn how to use pagination in the API and Client Libraries.*/
     pub fn list_invoice_templates(&self) -> request::ListInvoiceTemplatesRequest {
         request::ListInvoiceTemplatesRequest {
-            client: &self,
+            http_client: &self,
             sort: None,
         }
     }
@@ -2374,7 +2372,7 @@ See the [Pagination Guide](/developers/guides/pagination.html) to learn how to u
         invoice_template_id: &str,
     ) -> request::GetInvoiceTemplateRequest {
         request::GetInvoiceTemplateRequest {
-            client: &self,
+            http_client: &self,
             invoice_template_id: invoice_template_id.to_owned(),
         }
     }
@@ -2384,7 +2382,7 @@ See the [Pagination Guide](/developers/guides/pagination.html) to learn how to u
         account_id: &str,
     ) -> request::ListEntitlementsRequest {
         request::ListEntitlementsRequest {
-            client: &self,
+            http_client: &self,
             account_id: account_id.to_owned(),
             state: None,
         }
@@ -2397,7 +2395,7 @@ See the [Pagination Guide](/developers/guides/pagination.html) to learn how to u
         account_id: &str,
     ) -> request::ListAccountExternalSubscriptionsRequest {
         request::ListAccountExternalSubscriptionsRequest {
-            client: &self,
+            http_client: &self,
             sort: None,
             account_id: account_id.to_owned(),
         }

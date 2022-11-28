@@ -5,7 +5,7 @@ use crate::RecurlyClient;
 
 That method takes required values as arguments. Set optional values using builder methods on this struct.*/
 pub struct ListChildAccountsRequest<'a> {
-    pub(crate) client: &'a RecurlyClient,
+    pub(crate) http_client: &'a RecurlyClient,
     pub account_id: String,
     pub ids: Option<Vec<String>>,
     pub limit: Option<i64>,
@@ -20,7 +20,7 @@ pub struct ListChildAccountsRequest<'a> {
 impl<'a> ListChildAccountsRequest<'a> {
     pub async fn send(self) -> anyhow::Result<AccountList> {
         let mut r = self
-            .client
+            .http_client
             .client
             .get(
                 &format!("/accounts/{account_id}/accounts", account_id = self.account_id),
@@ -54,7 +54,7 @@ impl<'a> ListChildAccountsRequest<'a> {
         if let Some(ref unwrapped) = self.past_due {
             r = r.push_query("past_due", &unwrapped.to_string());
         }
-        r = self.client.authenticate(r);
+        r = self.http_client.authenticate(r);
         let res = r.send().await.unwrap().error_for_status();
         match res {
             Ok(res) => res.json().await.map_err(|e| anyhow::anyhow!("{:?}", e)),

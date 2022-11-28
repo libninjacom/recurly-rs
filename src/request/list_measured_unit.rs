@@ -5,7 +5,7 @@ use crate::RecurlyClient;
 
 That method takes required values as arguments. Set optional values using builder methods on this struct.*/
 pub struct ListMeasuredUnitRequest<'a> {
-    pub(crate) client: &'a RecurlyClient,
+    pub(crate) http_client: &'a RecurlyClient,
     pub ids: Option<Vec<String>>,
     pub limit: Option<i64>,
     pub order: Option<String>,
@@ -16,7 +16,7 @@ pub struct ListMeasuredUnitRequest<'a> {
 }
 impl<'a> ListMeasuredUnitRequest<'a> {
     pub async fn send(self) -> anyhow::Result<MeasuredUnitList> {
-        let mut r = self.client.client.get("/measured_units");
+        let mut r = self.http_client.client.get("/measured_units");
         if let Some(ref unwrapped) = self.ids {
             for item in unwrapped {
                 r = r.push_query("ids[]", &item.to_string());
@@ -40,7 +40,7 @@ impl<'a> ListMeasuredUnitRequest<'a> {
         if let Some(ref unwrapped) = self.state {
             r = r.push_query("state", &unwrapped.to_string());
         }
-        r = self.client.authenticate(r);
+        r = self.http_client.authenticate(r);
         let res = r.send().await.unwrap().error_for_status();
         match res {
             Ok(res) => res.json().await.map_err(|e| anyhow::anyhow!("{:?}", e)),
