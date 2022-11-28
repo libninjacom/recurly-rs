@@ -59,7 +59,7 @@ Add this to your Cargo.toml:
 
 ```toml
 [dependencies]
-recurly = "0.1.0"
+recurly = "48.0.0"
 ```
 
 
