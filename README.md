@@ -8,7 +8,7 @@
         <img src="https://img.shields.io/github/stars/libninjacom/recurly-rs.svg?style=flat-square" alt="Stars" />
     </a>
     <a href="https://github.com/libninjacom/recurly-rs/actions">
-        <img src="https://img.shields.io/github/workflow/status/libninjacom/recurly-rs/CI?style=flat-square" alt="Build Status" />
+        <img src="https://img.shields.io/github/workflow/status/libninjacom/recurly-rs/ci?style=flat-square" alt="Build Status" />
     </a>
     
 <a href="https://crates.io/crates/recurly">
